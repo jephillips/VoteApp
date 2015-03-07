@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Voter App</string>
+    <string name="hello_world">Vote Here</string>
+    <string name="vote1">Option 1</string>
+    <string name="vote2">Option 2</string>
+    <string name="vote3">Option 3</string>
+    <string name="voteButton">Vote</string>
+    <string name="resultsButton">See results</string>
+
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Josh/Desktop/Dev%20shit/EmPubLite/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="fat">1in</dimen>
+    <dimen name="thin">10dip</dimen>
+    <!-- From: file:/C:/Users/Josh/Desktop/Dev%20shit/EmPubLite/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">Voter App</string>
+    <string name="hello_world">Vote Here</string>
+    <string name="resultsButton">See results</string>
+    <string name="vote1">Option 1</string>
+    <string name="vote2">Option 2</string>
+    <string name="vote3">Option 3</string>
+    <string name="voteButton">Vote</string>
+    <!-- From: file:/C:/Users/Josh/Desktop/Dev%20shit/EmPubLite/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
