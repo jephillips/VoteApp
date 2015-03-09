@@ -1,13 +1,12 @@
 package com.commonsware.empublite;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class EmPubLiteActivity extends Activity {
+public class VoteActivity extends Activity {
 
 
     private int option1, option2,option3;
@@ -15,7 +14,7 @@ public class EmPubLiteActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.vote);
 
 
     }
@@ -25,12 +24,12 @@ public class EmPubLiteActivity extends Activity {
 
         RadioGroup optionGroup = (RadioGroup) findViewById(R.id.radioGroup1);
         int option = optionGroup.getCheckedRadioButtonId();
-        if (option == 2131165186) option1++;
-        if (option == 2131165187) option2++;
-        if (option == 2131165188) option3++;
+        if (option == R.id.radioButton) option1++;
+        if (option == R.id.radioButton2) option2++;
+        if (option == R.id.radioButton3) option3++;
 
     }
-    
+
 
     public void getResults(View view) {
         CharSequence text = "Option 1: " + option1 + " - Option 2 : " + option2 +
