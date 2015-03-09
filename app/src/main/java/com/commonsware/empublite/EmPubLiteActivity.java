@@ -30,6 +30,7 @@ public class EmPubLiteActivity extends Activity {
         if (option == 2131165188) option3++;
 
     }
+    
 
     public void getResults(View view) {
         CharSequence text = "Option 1: " + option1 + " - Option 2 : " + option2 +
