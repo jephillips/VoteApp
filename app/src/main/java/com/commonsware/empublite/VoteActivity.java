@@ -14,7 +14,7 @@ public class VoteActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.vote);
+        setContentView(R.layout.vote_screen);
 
 
     }

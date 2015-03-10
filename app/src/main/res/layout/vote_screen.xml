@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_dark"
     tools:context=".EmPubLiteActivity"
-    android:clickable="true">
+    android:clickable="true"
+    android:id="@+id/vote_screen">
 
 
     <TextView
@@ -32,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vote1"
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButton"
             android:textColor="#ffffff"
             android:layout_marginTop="58dp" />
 
@@ -40,14 +41,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vote2"
-            android:id="@+id/radioButton3"
+            android:id="@+id/radioButton2"
             android:textColor="#ffffff" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vote3"
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButton3"
             android:textColor="#ffffffff"/>
 
     </RadioGroup>

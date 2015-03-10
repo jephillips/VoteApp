@@ -8,5 +8,6 @@
     <string name="vote3">Option 3</string>
     <string name="voteButton">Vote</string>
     <string name="resultsButton">See results</string>
+    <string name="new_poll_button">Create New Poll</string>
 
 </resources>
