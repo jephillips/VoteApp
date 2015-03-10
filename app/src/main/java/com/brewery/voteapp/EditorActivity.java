@@ -37,7 +37,6 @@ public class EditorActivity extends Activity {
                 addVoteOption();
             }
         });
-
     }
 
     private void addVoteOption() {
@@ -55,7 +54,7 @@ public class EditorActivity extends Activity {
     }
 
 
-    //This will eventually return a Poll
+    //Constructs an array of String pulled from the Text Fields
     public void saveAndReturn(View view) {
         ArrayList<String> pollOptions = new ArrayList<String>();
         String pollName = ((EditText)findViewById(R.id.pollNameField)).getText().toString();
@@ -67,6 +66,8 @@ public class EditorActivity extends Activity {
                     .toString();
             pollOptions.add(currentOptionString);
         }
+
+        finish();
 
     }
 }
