@@ -8,9 +8,9 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_option_button_text"
         android:id="@+id/addOptionButton"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/add_new_option_string"/>
 
     <Button
         android:layout_width="match_parent"
@@ -20,5 +20,12 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="saveAndReturn"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pollNameField"
+        android:layout_gravity="center_horizontal"
+        android:hint="Poll Name" />
 
 </LinearLayout>

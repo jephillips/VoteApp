@@ -1,5 +1,6 @@
 package com.brewery.voteapp;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -8,7 +9,13 @@ import java.util.LinkedList;
  */
 public class Poll {
 
-    private LinkedList<HashMap> choiceList = new LinkedList<HashMap>();
+    private String pollName;
+    private ArrayList<HashMap> choiceList = new ArrayList<HashMap>();
+
+
+    public void setPollName(String name) {
+        pollName = name;
+    }
 
     public void addChoice(HashMap<String,Integer> newChoice) {
         choiceList.add(newChoice);

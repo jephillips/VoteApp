@@ -3,7 +3,6 @@
 package com.brewery.voteapp;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +19,7 @@ public class EditorActivity extends Activity {
 
 
     private LinearLayout main;
-    private int id = 0;
+    private int optionID = 1;
     private List<EditText> editTexts = new ArrayList<EditText>();
 
 
@@ -46,17 +45,29 @@ public class EditorActivity extends Activity {
         editTextLayout.setOrientation(LinearLayout.VERTICAL);
         main.addView(editTextLayout);
 
-        EditText editText1 = new EditText(this);
-        editText1.setId(id++);
-        editTextLayout.addView(editText1);
+        EditText editOption = new EditText(this);
+        String optionTextID = "@+id/editOption" + optionID;
+        editOption.setHint("Option" + optionID );
+        editOption.setId(optionID++);
+        editTextLayout.addView(editOption);
+        editTexts.add(editOption);
 
     }
 
 
     //This will eventually return a Poll
     public void saveAndReturn(View view) {
-        Intent mainReturn = new Intent(this, ManagerActivity.class);
-        startActivity(mainReturn);
+        ArrayList<String> pollOptions = new ArrayList<String>();
+        String pollName = ((EditText)findViewById(R.id.pollNameField)).getText().toString();
+        pollOptions.add(pollName);
+
+        for (EditText option : editTexts) {
+            int currentOptionID = option.getId();
+            String currentOptionString = ((EditText)findViewById(currentOptionID)).getText()
+                    .toString();
+            pollOptions.add(currentOptionString);
+        }
+
     }
 }
 

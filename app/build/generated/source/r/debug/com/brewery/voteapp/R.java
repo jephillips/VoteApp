@@ -19,22 +19,27 @@ public final class R {
         public static final int vote_app=0x7f020001;
     }
     public static final class id {
-        public static final int button=0x7f07000e;
-        public static final int button2=0x7f070001;
-        public static final int deletePoll=0x7f070003;
-        public static final int editPoll=0x7f070002;
-        public static final int listView=0x7f070007;
-        public static final int poll_manager=0x7f070000;
-        public static final int radioButton=0x7f07000b;
-        public static final int radioButton2=0x7f07000c;
-        public static final int radioButton3=0x7f07000d;
-        public static final int radioGroup1=0x7f07000a;
-        public static final int resultsButton=0x7f07000f;
-        public static final int returnToManagerButton=0x7f070006;
-        public static final int textView=0x7f070009;
-        public static final int textView2=0x7f070005;
-        public static final int viewPoll=0x7f070004;
-        public static final int vote_screen=0x7f070008;
+        public static final int addOptionButton=0x7f070001;
+        public static final int button=0x7f070013;
+        public static final int button2=0x7f070005;
+        public static final int deletePoll=0x7f070007;
+        public static final int listView=0x7f07000c;
+        public static final int listView2=0x7f070009;
+        public static final int pollEditorLayout=0x7f070000;
+        public static final int pollNameField=0x7f070003;
+        public static final int poll_manager=0x7f070004;
+        public static final int radioButton=0x7f070010;
+        public static final int radioButton2=0x7f070011;
+        public static final int radioButton3=0x7f070012;
+        public static final int radioGroup1=0x7f07000f;
+        public static final int resultsButton=0x7f070014;
+        public static final int returnToManagerButton=0x7f07000b;
+        public static final int saveButton=0x7f070002;
+        public static final int textView=0x7f07000e;
+        public static final int textView2=0x7f07000a;
+        public static final int viewPoll=0x7f070008;
+        public static final int voteButton=0x7f070006;
+        public static final int vote_screen=0x7f07000d;
     }
     public static final class layout {
         public static final int poll_editor=0x7f030000;
@@ -43,14 +48,17 @@ public final class R {
         public static final int vote_screen=0x7f030003;
     }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int hello_world=0x7f050001;
-        public static final int new_poll_button=0x7f050002;
-        public static final int resultsButton=0x7f050003;
-        public static final int vote1=0x7f050004;
-        public static final int vote2=0x7f050005;
-        public static final int vote3=0x7f050006;
-        public static final int voteButton=0x7f050007;
+        public static final int add_new_option_string=0x7f050000;
+        public static final int add_option_button_text=0x7f050001;
+        public static final int app_name=0x7f050002;
+        public static final int hello_world=0x7f050003;
+        public static final int new_poll_button=0x7f050004;
+        public static final int resultsButton=0x7f050005;
+        public static final int save_poll_button=0x7f050006;
+        public static final int vote1=0x7f050007;
+        public static final int vote2=0x7f050008;
+        public static final int vote3=0x7f050009;
+        public static final int voteButton=0x7f05000a;
     }
     public static final class style {
         /**  Customize your theme here. 

@@ -5,10 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.ArrayList;
+
 /**
  * Created by Josh on 3/9/2015.
  */
 public class ManagerActivity extends Activity {
+
+    ArrayList<Poll> pollList;
+    PollBuilder pollBuilder = new PollBuilder();
+
+    private static final int NEW_POLL_REQUEST = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +35,9 @@ public class ManagerActivity extends Activity {
 
     public void newPollButton(View view) {
         Intent newPollIntent = new Intent(this, EditorActivity.class);
-        startActivity(newPollIntent);
+        startActivityForResult(newPollIntent, NEW_POLL_REQUEST);
+
+
+        //pollBuilder.buildPoll();
     }
 }
