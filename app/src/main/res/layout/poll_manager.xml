@@ -9,30 +9,32 @@
         android:layout_alignParentBottom="true"
         android:text="@string/new_poll_button"
         android:id="@+id/button2"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom"
+        android:onClick="newPollButton"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/editPoll"
+        android:text="Vote!"
+        android:id="@+id/voteButton"
         android:layout_above="@+id/button2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="goVoteButton"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Delete Poll"
         android:id="@+id/deletePoll"
-        android:layout_alignBottom="@+id/editPoll"
-        android:layout_toRightOf="@+id/editPoll"
-        android:layout_toEndOf="@+id/editPoll" />
+        android:layout_alignBottom="@+id/voteButton"
+        android:layout_toRightOf="@+id/voteButton"
+        android:layout_toEndOf="@+id/voteButton" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="View Poll"
         android:id="@+id/viewPoll"
         android:layout_alignBottom="@+id/deletePoll"
         android:layout_toRightOf="@+id/deletePoll"

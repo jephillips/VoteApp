@@ -9,5 +9,6 @@
     <string name="voteButton">Vote</string>
     <string name="resultsButton">See results</string>
     <string name="new_poll_button">Create New Poll</string>
+    <string name="save_poll_button">Save Poll</string>
 
 </resources>
