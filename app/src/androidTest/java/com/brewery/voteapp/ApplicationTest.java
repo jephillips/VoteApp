@@ -1,4 +1,4 @@
-package com.commonsware.empublite;
+package com.brewery.voteapp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

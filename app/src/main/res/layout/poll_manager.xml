@@ -11,4 +11,32 @@
         android:id="@+id/button2"
         android:layout_gravity="bottom" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/editPoll"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/deletePoll"
+        android:layout_alignBottom="@+id/editPoll"
+        android:layout_toRightOf="@+id/editPoll"
+        android:layout_toEndOf="@+id/editPoll" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/viewPoll"
+        android:layout_alignBottom="@+id/deletePoll"
+        android:layout_toRightOf="@+id/deletePoll"
+        android:layout_toEndOf="@+id/deletePoll"
+        android:onClick="viewPoll"/>
+
 </RelativeLayout>
