@@ -1,12 +1,18 @@
 package com.brewery.voteapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Josh on 3/9/2015.
@@ -21,6 +27,9 @@ public class ManagerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_manager);
+        ListView pollListView = (ListView) findViewById(R.id.pollListView);
+        PollListAdapter pollListAdapter = new PollListAdapter();
+        pollListView.setAdapter(pollListAdapter);
 
     }
 
@@ -54,5 +63,23 @@ public class ManagerActivity extends Activity {
 
         }
 
+    class PollListAdapter extends ArrayAdapter<Poll> {
+
+        PollListAdapter() {
+            super(ManagerActivity.this, R.layout.poll_list_view_layout, R.id.pollListView,
+                    pollList);
+
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View row = super.getView(position, convertView, parent);
+            
+
+            return row;
+        }
     }
+
+
+}
 
