@@ -10,9 +10,9 @@ import java.util.LinkedList;
  */
 public class Poll implements Serializable {
 
-    private String pollName;
-    private ArrayList<HashMap> choiceList = new ArrayList<HashMap>();
-    private int totalVotes;
+    public String pollName;
+    public ArrayList<HashMap> choiceList = new ArrayList<HashMap>();
+    public int totalVotes;
 
     public void setPollName(String name) {
         pollName = name;

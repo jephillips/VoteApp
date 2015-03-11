@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +32,7 @@ public class ManagerActivity extends Activity {
         ListView pollListView = (ListView) findViewById(R.id.pollListView);
         PollListAdapter pollListAdapter = new PollListAdapter();
         pollListView.setAdapter(pollListAdapter);
+
 
     }
 
@@ -73,11 +76,25 @@ public class ManagerActivity extends Activity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View row = super.getView(position, convertView, parent);
-            
+            View v = convertView;
+            if(v==null)
+                v =((LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+                        .inflate(R.layout.poll_list_view_layout,null);
+
+            View row = super.getView(position, v, parent);
+            TextView pollNameTextView = (TextView)row.findViewById(R.id.poll_name_text_view);
+            Poll currentPoll = pollList.get(position);
+
+            pollNameTextView.setText(currentPoll.getPollName());
+
+
 
             return row;
         }
+    }
+
+    class ViewHolder {
+        TextView pollNameView = null;
     }
 
 
