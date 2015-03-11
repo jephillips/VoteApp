@@ -34,5 +34,6 @@ public class ResultsActivity extends Activity {
 
         Intent returnIntent = new Intent(this, ManagerActivity.class);
         startActivity(returnIntent);
+
     }
 }

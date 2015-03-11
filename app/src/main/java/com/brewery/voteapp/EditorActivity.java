@@ -3,6 +3,7 @@
 package com.brewery.voteapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -54,7 +55,7 @@ public class EditorActivity extends Activity {
     }
 
 
-    //Constructs an array of String pulled from the Text Fields
+    //Constructs an array of Strings pulled from the Text Fields
     public void saveAndReturn(View view) {
         ArrayList<String> pollOptions = new ArrayList<String>();
         String pollName = ((EditText)findViewById(R.id.pollNameField)).getText().toString();
@@ -67,7 +68,13 @@ public class EditorActivity extends Activity {
             pollOptions.add(currentOptionString);
         }
 
+        Intent returnToMain = new Intent();
+        returnToMain.putStringArrayListExtra("pollOptions", pollOptions);
+        setResult(RESULT_OK, returnToMain);
         finish();
+
+
+        ;
 
     }
 }

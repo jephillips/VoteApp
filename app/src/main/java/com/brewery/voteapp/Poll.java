@@ -1,5 +1,6 @@
 package com.brewery.voteapp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -7,26 +8,39 @@ import java.util.LinkedList;
 /**
  * Created by Josh on 3/9/2015.
  */
-public class Poll {
+public class Poll implements Serializable {
 
     private String pollName;
     private ArrayList<HashMap> choiceList = new ArrayList<HashMap>();
-
+    private int totalVotes;
 
     public void setPollName(String name) {
         pollName = name;
     }
 
-    public void addChoice(HashMap<String,Integer> newChoice) {
-        choiceList.add(newChoice);
+    public void incrementTotalVotes() {
+        totalVotes++;
     }
 
-    public HashMap<String,Integer> getChoice(int position) {
-        // not sure about this implementation
-        return choiceList.get(position);
+    public void addChoice(HashMap<String, Integer> newChoice) {
+        choiceList.add(newChoice);
     }
 
     public void removeChoice(int position) {
         choiceList.remove(position);
     }
+
+
+    public int getTotalVotes() {
+        return totalVotes;
+    }
+
+    public HashMap<String, Integer> getChoice(int position) {
+        return choiceList.get(position);
+    }
+
+    public String getPollName(){
+        return pollName;
+    }
+
 }
