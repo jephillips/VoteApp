@@ -1,20 +1,15 @@
 package com.brewery.voteapp;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
+
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+
 
 /**
  * Created by Josh on 3/9/2015.
@@ -23,6 +18,8 @@ public class ManagerActivity extends Activity {
 
     ArrayList<Poll> pollList = new ArrayList<Poll>();
     PollBuilder pollBuilder = new PollBuilder();
+    PollListAdapter pollListAdapter;
+    int rowPosition;
 
     private static final int NEW_POLL_REQUEST = 1;
 
@@ -30,10 +27,16 @@ public class ManagerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_manager);
         ListView pollListView = (ListView) findViewById(R.id.pollListView);
-        PollListAdapter pollListAdapter = new PollListAdapter();
+        pollListAdapter = new PollListAdapter(this, pollList);
         pollListView.setAdapter(pollListAdapter);
 
+    }
 
+    public void deletePoll(View view) {;
+        System.out.println(rowPosition);
+        pollList.remove(rowPosition);
+
+        pollListAdapter.updatePollArray(pollList);
     }
 
     public void viewPoll(View view) {
@@ -60,42 +63,15 @@ public class ManagerActivity extends Activity {
         ArrayList<String> pollOptions = data.getStringArrayListExtra("pollOptions");
         Poll newPoll = pollBuilder.buildPoll(pollOptions);
         pollList.add(newPoll);
-
-        System.out.println(newPoll.getPollName());
-        System.out.println(newPoll.getChoice(0));
+        pollListAdapter.updatePollArray(pollList);
 
         }
-
-    class PollListAdapter extends ArrayAdapter<Poll> {
-
-        PollListAdapter() {
-            super(ManagerActivity.this, R.layout.poll_list_view_layout, R.id.pollListView,
-                    pollList);
-
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View v = convertView;
-            if(v==null)
-                v =((LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE))
-                        .inflate(R.layout.poll_list_view_layout,null);
-
-            View row = super.getView(position, v, parent);
-            TextView pollNameTextView = (TextView)row.findViewById(R.id.poll_name_text_view);
-            Poll currentPoll = pollList.get(position);
-
-            pollNameTextView.setText(currentPoll.getPollName());
-
-
-
-            return row;
-        }
-    }
 
     class ViewHolder {
         TextView pollNameView = null;
     }
+
+
 
 
 }

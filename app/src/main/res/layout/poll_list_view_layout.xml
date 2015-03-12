@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/deletePollButton"
         android:src="@drawable/delete"
-        />
+        android:onClick="deletePoll"/>
 
     <ImageButton
         android:layout_width="wrap_content"

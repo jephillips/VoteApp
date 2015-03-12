@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.commonsware.empublite"
         minSdkVersion 16
-        targetSdkVersion 18
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
     }
