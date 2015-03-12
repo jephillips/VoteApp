@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 import java.util.ArrayList;
@@ -24,7 +25,14 @@ public class ResultsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_results);
         returnToManagerButton = (Button) findViewById(R.id.returnToManagerButton);
-        listView = (ListView) findViewById(R.id.listView);
+        Intent receivingIntent = this.getIntent();
+        Bundle receivingBundle = receivingIntent.getExtras();
+        Poll currentPoll = (Poll)receivingBundle.getSerializable("poll");
+        TextView pollNameTextView = (TextView)findViewById(R.id.poll_name_text_view);
+        ListView pollResultsListView = (ListView) findViewById(R.id.poll_results_list_view);
+
+        pollNameTextView.setText(currentPoll.getPollName());
+
 
         // Populate the results ArrayList with data from the Poll object being passed along with the
         // intent
@@ -32,8 +40,7 @@ public class ResultsActivity extends Activity {
 
     public void returnToManager(View view) {
 
-        Intent returnIntent = new Intent(this, ManagerActivity.class);
-        startActivity(returnIntent);
+        finish();
 
     }
 }

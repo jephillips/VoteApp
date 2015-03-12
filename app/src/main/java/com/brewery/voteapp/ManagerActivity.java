@@ -19,7 +19,11 @@ public class ManagerActivity extends Activity {
     ArrayList<Poll> pollList = new ArrayList<Poll>();
     PollBuilder pollBuilder = new PollBuilder();
     PollListAdapter pollListAdapter;
-    int rowPosition;
+    private static int rowPosition;
+
+    public static void setRowPosition(int position) {
+        rowPosition = position;
+    }
 
     private static final int NEW_POLL_REQUEST = 1;
 
@@ -32,23 +36,6 @@ public class ManagerActivity extends Activity {
 
     }
 
-    public void deletePoll(View view) {;
-        System.out.println(rowPosition);
-        pollList.remove(rowPosition);
-
-        pollListAdapter.updatePollArray(pollList);
-    }
-
-    public void viewPoll(View view) {
-        Intent viewPollIntent = new Intent(this, ResultsActivity.class);
-        viewPollIntent.putExtra("pollToView", pollList.get(0));
-        startActivity(viewPollIntent);
-    }
-
-    public void goVoteButton(View view) {
-        Intent voteIntent = new Intent(this, VoteActivity.class);
-        startActivity(voteIntent);
-    }
 
     public void newPollButton(View view) {
         Intent newPollIntent = new Intent(this, EditorActivity.class);
