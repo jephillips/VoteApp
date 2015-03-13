@@ -22,8 +22,6 @@ class PollListAdapter extends BaseAdapter {
     private ArrayList<Poll> adapterPollList;
 
     PollListAdapter(Context context, ArrayList<Poll> pollList) {
-//            super(ManagerActivity.this, R.layout.poll_list_view_layout, R.id.pollListView,
-//                    pollList);
         this.context = context;
         mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         adapterPollList = pollList;

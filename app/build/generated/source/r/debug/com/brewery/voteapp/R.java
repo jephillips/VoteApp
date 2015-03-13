@@ -22,7 +22,7 @@ public final class R {
     }
     public static final class id {
         public static final int addOptionButton=0x7f070001;
-        public static final int button=0x7f070013;
+        public static final int button=0x7f070015;
         public static final int button2=0x7f070009;
         public static final int deletePollButton=0x7f070005;
         public static final int editPollButton=0x7f070006;
@@ -32,23 +32,26 @@ public final class R {
         public static final int poll_manager=0x7f070008;
         public static final int poll_name_text_view=0x7f070004;
         public static final int poll_results_list_view=0x7f07000c;
-        public static final int radioButton=0x7f070010;
-        public static final int radioButton2=0x7f070011;
-        public static final int radioButton3=0x7f070012;
-        public static final int resultsButton=0x7f070014;
+        public static final int radioButton=0x7f070012;
+        public static final int radioButton2=0x7f070013;
+        public static final int radioButton3=0x7f070014;
+        public static final int result_option_view=0x7f07000e;
+        public static final int result_vote_count=0x7f07000d;
+        public static final int resultsButton=0x7f070016;
         public static final int returnToManagerButton=0x7f07000b;
         public static final int saveButton=0x7f070002;
         public static final int votePollButton=0x7f070007;
-        public static final int vote_options_radio_group=0x7f07000f;
-        public static final int vote_poll_question=0x7f07000e;
-        public static final int vote_screen=0x7f07000d;
+        public static final int vote_options_radio_group=0x7f070011;
+        public static final int vote_poll_question=0x7f070010;
+        public static final int vote_screen=0x7f07000f;
     }
     public static final class layout {
         public static final int poll_editor=0x7f030000;
         public static final int poll_list_view_layout=0x7f030001;
         public static final int poll_manager=0x7f030002;
         public static final int poll_results=0x7f030003;
-        public static final int vote_screen=0x7f030004;
+        public static final int poll_results_list_view=0x7f030004;
+        public static final int vote_screen=0x7f030005;
     }
     public static final class string {
         public static final int add_new_option_string=0x7f050000;

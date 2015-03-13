@@ -14,7 +14,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Return to main"
         android:id="@+id/returnToManagerButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
