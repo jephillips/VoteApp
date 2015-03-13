@@ -59,7 +59,9 @@ public class EditorActivity extends Activity {
     public void saveAndReturn(View view) {
         ArrayList<String> pollOptions = new ArrayList<String>();
         String pollName = ((EditText)findViewById(R.id.pollNameField)).getText().toString();
+        String pollQuestion = ((EditText)findViewById(R.id.pollQuestionField)).getText().toString();
         pollOptions.add(pollName);
+        pollOptions.add(pollQuestion);
 
         for (EditText option : editTexts) {
             int currentOptionID = option.getId();

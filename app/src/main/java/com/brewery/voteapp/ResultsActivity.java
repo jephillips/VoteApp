@@ -34,7 +34,7 @@ public class ResultsActivity extends Activity {
         pollResultsListView.setAdapter(pollAdapter);
 
 
-        pollNameTextView.setText(currentPoll.getPollName());
+        pollNameTextView.setText(currentPoll.getPollQuestion());
 
 
         // Populate the results ArrayList with data from the Poll object being passed along with the

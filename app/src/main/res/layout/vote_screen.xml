@@ -2,76 +2,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
     tools:context=".EmPubLiteActivity"
     android:clickable="true"
     android:id="@+id/vote_screen">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/hello_world"
-        android:id="@+id/vote_poll_question"
-        android:textColor="#ffffff"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="110dp" />
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/vote_options_radio_group"
-        android:textAlignment="center"
-        android:layout_below="@+id/vote_poll_question"
-        android:layout_alignLeft="@+id/vote_poll_question"
-        android:layout_alignStart="@+id/vote_poll_question"
-        android:layout_gravity="center">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/vote1"
-            android:id="@+id/radioButton"
-            android:textColor="#ffffff"
-            android:layout_marginTop="58dp" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/vote2"
-            android:id="@+id/radioButton2"
-            android:textColor="#ffffff" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/vote3"
-            android:id="@+id/radioButton3"
-            android:textColor="#ffffffff"/>
-
-    </RadioGroup>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/voteButton"
-        android:id="@+id/button"
-        android:layout_marginTop="42dp"
+        android:id="@+id/vote_button"
         android:onClick="vote"
-        android:layout_below="@+id/vote_options_radio_group"
-        android:layout_toLeftOf="@+id/vote_options_radio_group"
-        android:layout_toStartOf="@+id/vote_options_radio_group" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/resultsButton"
-        android:id="@+id/resultsButton"
-        android:layout_alignTop="@+id/button"
-        android:layout_toRightOf="@+id/vote_options_radio_group"
-        android:layout_toEndOf="@+id/vote_options_radio_group"
-        android:onClick="getResults" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/vote_poll_question"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"/>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vote_option_list"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/vote_button"
+        android:layout_below="@+id/vote_poll_question"
+        android:choiceMode="singleChoice"/>
+
 </RelativeLayout>

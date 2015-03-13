@@ -27,6 +27,8 @@ public class PollBuilder {
         //Sets the poll name and removes it from the optionsList
         newPoll.setPollName(optionsList.get(0));
         optionsList.remove(0);
+        newPoll.setPollQuestion(optionsList.get(0));
+        optionsList.remove(0);
 
         for (String optionString : optionsList) {
             //Creates an option hashmap with a option string and vote value init to 0

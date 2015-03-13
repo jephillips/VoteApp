@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/addOptionButton"
-        android:layout_gravity="center_horizontal"
         android:text="@string/add_new_option_string"/>
 
     <Button
@@ -25,7 +24,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/pollNameField"
+        android:hint="Poll Name"
+        android:singleLine="true"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pollQuestionField"
         android:layout_gravity="center_horizontal"
-        android:hint="Poll Name" />
+        android:hint="Poll Question"
+        android:singleLine="true"/>
 
 </LinearLayout>

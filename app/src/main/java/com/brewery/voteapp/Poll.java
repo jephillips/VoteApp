@@ -11,8 +11,15 @@ import java.util.LinkedList;
 public class Poll implements Serializable {
 
     public String pollName;
+    public String pollQuestion;
     public ArrayList<HashMap> choiceList = new ArrayList<HashMap>();
     public int totalVotes;
+
+
+    public void setPollQuestion(String question) {
+        pollQuestion = question;
+    }
+
 
     public void setPollName(String name) {
         pollName = name;
@@ -43,4 +50,5 @@ public class Poll implements Serializable {
         return pollName;
     }
 
+    public String getPollQuestion() { return pollQuestion;}
 }

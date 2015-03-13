@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class VoteActivity extends Activity {
@@ -19,21 +20,11 @@ public class VoteActivity extends Activity {
         Intent receivingIntent = this.getIntent();
         Bundle receivingBundle = receivingIntent.getExtras();
         Poll currentPoll = (Poll)receivingBundle.getSerializable("poll");
-
-
-
-    }
-
-
-    public void vote(View view) {
-
-        RadioGroup optionGroup = (RadioGroup) findViewById(R.id.vote_options_radio_group);
-        int option = optionGroup.getCheckedRadioButtonId();
-        if (option == R.id.radioButton) option1++;
-        if (option == R.id.radioButton2) option2++;
-        if (option == R.id.radioButton3) option3++;
+        TextView pollQuestion = (TextView)findViewById(R.id.vote_poll_question);
+        pollQuestion.setText(currentPoll.getPollQuestion());
 
     }
+
 
 
     public void getResults(View view) {
