@@ -54,9 +54,6 @@ public class ManagerActivity extends Activity {
 
         }
 
-    class ViewHolder {
-        TextView pollNameView = null;
-    }
 
 
 

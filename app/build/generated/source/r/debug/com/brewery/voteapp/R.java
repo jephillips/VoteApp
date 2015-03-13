@@ -35,12 +35,12 @@ public final class R {
         public static final int radioButton=0x7f070010;
         public static final int radioButton2=0x7f070011;
         public static final int radioButton3=0x7f070012;
-        public static final int vote_options_radio_group =0x7f07000f;
         public static final int resultsButton=0x7f070014;
         public static final int returnToManagerButton=0x7f07000b;
         public static final int saveButton=0x7f070002;
-        public static final int vote_poll_question =0x7f07000e;
         public static final int votePollButton=0x7f070007;
+        public static final int vote_options_radio_group=0x7f07000f;
+        public static final int vote_poll_question=0x7f07000e;
         public static final int vote_screen=0x7f07000d;
     }
     public static final class layout {

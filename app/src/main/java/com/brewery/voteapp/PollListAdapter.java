@@ -52,12 +52,20 @@ class PollListAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        if(convertView==null)
-            if(convertView == null)
+        ViewHolder holder;
+
+        if(convertView==null) {
                 convertView = mInflater.inflate(R.layout.poll_list_view_layout, parent, false);
+                holder = new ViewHolder();
+                holder.pollNameView = (TextView) convertView.findViewById(R.id.poll_name_text_view);
+
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
 
         //This block allows buttons to access the poll in their row
-        final ImageButton deleteButton = (ImageButton)convertView.findViewById(R.id.deletePollButton);
+        ImageButton deleteButton = (ImageButton)convertView.findViewById(R.id.deletePollButton);
         ImageButton editButton = (ImageButton)convertView.findViewById(R.id.editPollButton);
         ImageButton voteButton = (ImageButton)convertView.findViewById(R.id.votePollButton);
         editButton.setTag(position);
@@ -95,9 +103,13 @@ class PollListAdapter extends BaseAdapter {
             }
         });
 
-        TextView pollNameTextView = (TextView)convertView.findViewById(R.id.poll_name_text_view);
 
-        pollNameTextView.setText(currentPoll.getPollName());
+        holder.pollNameView.setText(currentPoll.getPollName());
         return convertView;
     }
+
+    class ViewHolder {
+        TextView pollNameView;
+    }
+
 }
