@@ -1,5 +1,6 @@
 package com.brewery.voteapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ class PollListAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private final Context context;
     private ArrayList<Poll> adapterPollList;
+    private int NEW_VOTE = 2;
+    private PollBuilder pollBuilder = new PollBuilder();
 
     PollListAdapter(Context context, ArrayList<Poll> pollList) {
         this.context = context;
@@ -86,7 +89,12 @@ class PollListAdapter extends BaseAdapter {
                 Intent resultsIntent = new Intent(view.getContext(), ResultsActivity.class);
                 resultsIntent.putExtras(pollBundle);
                 c.startActivity(resultsIntent);
-            }
+
+            };
+
+
+
+
         });
         voteButton.setOnClickListener(new View.OnClickListener() {
             Context c = context;
@@ -94,9 +102,10 @@ class PollListAdapter extends BaseAdapter {
             public void onClick(View view) {
                 Bundle pollBundle = new Bundle();
                 pollBundle.putSerializable("poll", currentPoll);
+                pollBundle.putInt("position", position);
                 Intent voteIntent = new Intent(view.getContext(), VoteActivity.class);
                 voteIntent.putExtras(pollBundle);
-                c.startActivity(voteIntent);
+                ((Activity)c).startActivityForResult(voteIntent, NEW_VOTE);
 
             }
         });
@@ -106,8 +115,10 @@ class PollListAdapter extends BaseAdapter {
         return convertView;
     }
 
-    class ViewHolder {
+    private class ViewHolder {
         TextView pollNameView;
     }
+
+
 
 }

@@ -47,12 +47,24 @@ public class ManagerActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        ArrayList<String> pollOptions = data.getStringArrayListExtra("pollOptions");
-        Poll newPoll = pollBuilder.buildPoll(pollOptions);
-        pollList.add(newPoll);
-        pollListAdapter.updatePollArray(pollList);
+        if (requestCode == 1) {
 
+            ArrayList<String> pollOptions = data.getStringArrayListExtra("pollOptions");
+            Poll newPoll = pollBuilder.buildPoll(pollOptions);
+            pollList.add(newPoll);
+            pollListAdapter.updatePollArray(pollList);
+
+        } else if (requestCode == 2) {
+            Bundle receivingBundle = data.getBundleExtra("poll");
+            Poll receivingPoll = (Poll) receivingBundle.getSerializable("poll");
+            int pastPosition = receivingBundle.getInt("pastPosition");
+            pollList.add(receivingPoll);
+            pollList.remove(pastPosition);
+            pollListAdapter = new PollListAdapter(this, pollList);
         }
+
+
+    }
 
 
 

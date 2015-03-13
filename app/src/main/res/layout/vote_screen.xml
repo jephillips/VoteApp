@@ -7,15 +7,6 @@
     android:id="@+id/vote_screen">
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/voteButton"
-        android:id="@+id/vote_button"
-        android:onClick="vote"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,8 +22,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/vote_option_list"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/vote_button"
         android:layout_below="@+id/vote_poll_question"
-        android:choiceMode="singleChoice"/>
+        android:choiceMode="singleChoice"
+        android:layout_above="@+id/button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return to Main"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="returnToMain"/>
 
 </RelativeLayout>

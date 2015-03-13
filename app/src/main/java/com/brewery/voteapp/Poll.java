@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by Josh on 3/9/2015.
@@ -12,13 +13,15 @@ public class Poll implements Serializable {
 
     public String pollName;
     public String pollQuestion;
-    public ArrayList<HashMap> choiceList = new ArrayList<HashMap>();
+    public ArrayList<HashMap<String, AtomicInteger>> choiceList = new ArrayList<HashMap<String, AtomicInteger>>();
     public int totalVotes;
 
 
     public void setPollQuestion(String question) {
         pollQuestion = question;
     }
+
+
 
 
     public void setPollName(String name) {
@@ -29,7 +32,7 @@ public class Poll implements Serializable {
         totalVotes++;
     }
 
-    public void addChoice(HashMap<String, Integer> newChoice) {
+    public void addChoice(HashMap<String, AtomicInteger> newChoice) {
         choiceList.add(newChoice);
     }
 
@@ -42,7 +45,7 @@ public class Poll implements Serializable {
         return totalVotes;
     }
 
-    public HashMap<String, Integer> getChoice(int position) {
+    public HashMap<String, AtomicInteger> getChoice(int position) {
         return choiceList.get(position);
     }
 

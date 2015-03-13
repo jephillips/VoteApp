@@ -30,8 +30,8 @@ public class ResultsActivity extends Activity {
         Poll currentPoll = (Poll)receivingBundle.getSerializable("poll");
         TextView pollNameTextView = (TextView)findViewById(R.id.poll_name_text_view);
         ListView pollResultsListView = (ListView) findViewById(R.id.poll_results_list_view);
-        PollAdapter pollAdapter = new PollAdapter(this, currentPoll);
-        pollResultsListView.setAdapter(pollAdapter);
+        PollResultAdapter pollResultAdapter = new PollResultAdapter(this, currentPoll);
+        pollResultsListView.setAdapter(pollResultAdapter);
 
 
         pollNameTextView.setText(currentPoll.getPollQuestion());

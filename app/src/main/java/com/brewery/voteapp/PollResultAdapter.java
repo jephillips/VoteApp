@@ -13,13 +13,13 @@ import org.w3c.dom.Text;
 /**
  * Created by jephillips on 3/13/15.
  */
-public class PollAdapter extends BaseAdapter {
+public class PollResultAdapter extends BaseAdapter {
 
     LayoutInflater mInflater;
     Context context;
     Poll poll;
 
-    PollAdapter(Context context, Poll poll) {
+    PollResultAdapter(Context context, Poll poll) {
         this.context = context;
         mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.poll = poll;
@@ -48,8 +48,9 @@ public class PollAdapter extends BaseAdapter {
         TextView optionText = (TextView) convertView.findViewById(R.id.result_option_view);
         TextView voteCountText = (TextView) convertView.findViewById(R.id.result_vote_count);
 
-        optionText.setText(poll.getChoice(position).keySet().toString());
-        voteCountText.setText(poll.getChoice(position).values().toString());
+        optionText.setText(poll.getChoice(position).keySet().toString().replaceAll("[\\[\\],]",""));
+        voteCountText.setText(poll.getChoice(position).values().toString().
+                replaceAll("[\\[\\],]",""));
         return convertView;
     }
 }

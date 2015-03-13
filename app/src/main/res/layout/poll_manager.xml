@@ -10,7 +10,8 @@
         android:text="@string/new_poll_button"
         android:id="@+id/button2"
         android:layout_gravity="bottom"
-        android:onClick="newPollButton"/>
+        android:onClick="newPollButton"
+        android:layout_marginTop="15dp"/>
 
     <ListView
         android:layout_width="wrap_content"

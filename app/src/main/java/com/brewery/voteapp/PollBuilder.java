@@ -2,6 +2,7 @@ package com.brewery.voteapp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by jephillips on 3/10/15.
@@ -32,11 +33,16 @@ public class PollBuilder {
 
         for (String optionString : optionsList) {
             //Creates an option hashmap with a option string and vote value init to 0
-            HashMap<String, Integer> newOption = new HashMap<String, Integer>();
-            newOption.put(optionString, 0);
+            HashMap<String, AtomicInteger> newOption = new HashMap<String, AtomicInteger>();
+            newOption.put(optionString, new AtomicInteger());
             newPoll.addChoice(newOption);
         }
 
+        return newPoll;
+    }
+
+    public Poll rebuildPoll(Poll poll) {
+        Poll newPoll = poll;
         return newPoll;
     }
 }
