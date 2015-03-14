@@ -52,7 +52,6 @@ public class PollVoteAdapter extends BaseAdapter{
         if(convertView==null) {
             convertView = mInflater.inflate(R.layout.vote_choices_list_view, parent, false);
         }
-
         final String option = poll.getChoice(position).keySet().toString()
                 .replaceAll("[\\[\\],]", "");
 
@@ -65,31 +64,20 @@ public class PollVoteAdapter extends BaseAdapter{
             public void onClick(View view) {
               for (int i = 0; i<poll.choiceList.size(); i++) {
                   if (poll.getChoice(i).containsKey(option)) {
-                      HashMap<String, AtomicInteger> choice = poll.getChoice(i);
-                      AtomicInteger value = choice.get(option);
-                      value.incrementAndGet();
+                      HashMap<String, AtomicInteger> choiceKey = poll.getChoice(i);
+                      AtomicInteger voteValue = choiceKey.get(option);
+                      voteValue.incrementAndGet();
                       poll.incrementTotalVotes();
-                      System.out.println(poll.getTotalVotes());
-                      System.out.println(poll.getChoice(i).get(option).toString());
-
-
-
                   }
               }
-
-                  pollBundle.putInt("number", 1);
                   pollBundle.putSerializable("poll", poll);
                   pollBundle.putInt("pastPosition", pastPosition);
-
                   Intent returnToMain = new Intent();
                   returnToMain.putExtra("newBundle", pollBundle);
                   ((Activity) context).setResult(Activity.RESULT_OK, returnToMain);
                   ((Activity) context).finish();
-
             }
         });
-
-
         return convertView;
     }
 }

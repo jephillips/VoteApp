@@ -25,8 +25,8 @@ public class ManagerActivity extends Activity {
     public static void setRowPosition(int position) {
         rowPosition = position;
     }
-
     private static final int NEW_POLL_REQUEST = 1;
+    private static final int UPDATED_POLL = 2;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,42 +34,31 @@ public class ManagerActivity extends Activity {
         ListView pollListView = (ListView) findViewById(R.id.pollListView);
         pollListAdapter = new PollListAdapter(this, pollList);
         pollListView.setAdapter(pollListAdapter);
-
     }
-
 
     public void newPollButton(View view) {
         Intent newPollIntent = new Intent(this, EditorActivity.class);
         startActivityForResult(newPollIntent, NEW_POLL_REQUEST);
-
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1) {
+        if (requestCode == NEW_POLL_REQUEST) {
 
             ArrayList<String> pollOptions = data.getStringArrayListExtra("pollOptions");
             Poll newPoll = pollBuilder.buildPoll(pollOptions);
             pollList.add(newPoll);
             pollListAdapter.updatePollArray(pollList);
 
-        } else if (requestCode == 2) {
-            Bundle receivingBundle = data.getBundleExtra("newBundle");
-            Poll receivingPoll = (Poll) receivingBundle.getSerializable("poll");
-            int pastPosition = receivingBundle.getInt("pastPosition");
-            pollList.add(receivingPoll);
-            pollList.remove(pastPosition);
+        } else if (requestCode == UPDATED_POLL) {
+            Bundle receivedBundle = data.getBundleExtra("newBundle");
+            Poll updatedPoll = (Poll) receivedBundle.getSerializable("poll");
+            int oldPoll = receivedBundle.getInt("pastPosition");
+            pollList.add(updatedPoll);
+            pollList.remove(oldPoll);
             pollListAdapter.updatePollArray(pollList);
         }
-
-
     }
-
-
-
-
-
 }
 

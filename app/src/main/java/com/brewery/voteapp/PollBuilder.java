@@ -25,25 +25,20 @@ public class PollBuilder {
     public Poll buildPoll(ArrayList<String> optionsList) {
 
         Poll newPoll = new Poll();
-        //Sets the poll name and removes it from the optionsList
+        //Sets the poll name/question and removes it from the optionsList
         newPoll.setPollName(optionsList.get(0));
         optionsList.remove(0);
         newPoll.setPollQuestion(optionsList.get(0));
         optionsList.remove(0);
 
         for (String optionString : optionsList) {
-            //Creates an option hashmap with a option string and vote value init to 0
+            //Creates a hashmap with a option string and vote value init to 0
             HashMap<String, AtomicInteger> newOption = new HashMap<String, AtomicInteger>();
             newOption.put(optionString, new AtomicInteger());
             newPoll.addChoice(newOption);
         }
-
         return newPoll;
     }
 
-    public Poll rebuildPoll(Poll poll) {
-        Poll newPoll = poll;
-        return newPoll;
-    }
 }
 

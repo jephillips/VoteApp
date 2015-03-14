@@ -16,13 +16,9 @@ public class Poll implements Serializable {
     public ArrayList<HashMap<String, AtomicInteger>> choiceList = new ArrayList<HashMap<String, AtomicInteger>>();
     public int totalVotes;
 
-
     public void setPollQuestion(String question) {
         pollQuestion = question;
     }
-
-
-
 
     public void setPollName(String name) {
         pollName = name;
@@ -39,7 +35,6 @@ public class Poll implements Serializable {
     public void removeChoice(int position) {
         choiceList.remove(position);
     }
-
 
     public int getTotalVotes() {
         return totalVotes;

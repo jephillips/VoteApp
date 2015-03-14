@@ -32,13 +32,8 @@ public class ResultsActivity extends Activity {
         ListView pollResultsListView = (ListView) findViewById(R.id.poll_results_list_view);
         PollResultAdapter pollResultAdapter = new PollResultAdapter(this, currentPoll);
         pollResultsListView.setAdapter(pollResultAdapter);
-
-
         pollNameTextView.setText(currentPoll.getPollQuestion());
 
-
-        // Populate the results ArrayList with data from the Poll object being passed along with the
-        // intent
     }
 
     public void returnToManager(View view) {

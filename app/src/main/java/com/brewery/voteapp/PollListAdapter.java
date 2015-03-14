@@ -65,11 +65,9 @@ class PollListAdapter extends BaseAdapter {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-        //This block allows buttons to access the poll in their row
         ImageButton deleteButton = (ImageButton)convertView.findViewById(R.id.deletePollButton);
         ImageButton editButton = (ImageButton)convertView.findViewById(R.id.editPollButton);
         ImageButton voteButton = (ImageButton)convertView.findViewById(R.id.votePollButton);
-        editButton.setTag(position);
         final Poll currentPoll = adapterPollList.get(position);
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -77,37 +75,31 @@ class PollListAdapter extends BaseAdapter {
             public void onClick(View view) {
                 adapterPollList.remove(position);
                 updatePollArray(adapterPollList);
-
             }
         });
         editButton.setOnClickListener(new View.OnClickListener() {
-            Context c = context;
             @Override
             public void onClick(View view) {
+                //Delivers current poll to the results view for display
                 Bundle pollBundle = new Bundle();
                 pollBundle.putSerializable("poll", currentPoll);
                 Intent resultsIntent = new Intent(view.getContext(), ResultsActivity.class);
                 resultsIntent.putExtras(pollBundle);
-                c.startActivity(resultsIntent);
-
-            };
-
+                context.startActivity(resultsIntent);
+            }
         });
         voteButton.setOnClickListener(new View.OnClickListener() {
-            Context c = context;
             @Override
             public void onClick(View view) {
+                //Delivers current poll to vote view for mutation
                 Bundle pollBundle = new Bundle();
                 pollBundle.putSerializable("poll", currentPoll);
                 pollBundle.putInt("position", position);
                 Intent voteIntent = new Intent(view.getContext(), VoteActivity.class);
                 voteIntent.putExtras(pollBundle);
-                ((Activity)c).startActivityForResult(voteIntent, NEW_VOTE);
-
+                ((Activity)context).startActivityForResult(voteIntent, NEW_VOTE);
             }
         });
-
-
         holder.pollNameView.setText(currentPoll.getPollName());
         return convertView;
     }

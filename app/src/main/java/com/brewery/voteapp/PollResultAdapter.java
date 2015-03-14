@@ -47,7 +47,7 @@ public class PollResultAdapter extends BaseAdapter {
 
         TextView optionText = (TextView) convertView.findViewById(R.id.result_option_view);
         TextView voteCountText = (TextView) convertView.findViewById(R.id.result_vote_count);
-
+        //Removes sloppy formatting from hashmap returns
         optionText.setText(poll.getChoice(position).keySet().toString().replaceAll("[\\[\\],]",""));
         voteCountText.setText(poll.getChoice(position).values().toString().
                 replaceAll("[\\[\\],]",""));

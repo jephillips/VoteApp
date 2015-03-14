@@ -18,19 +18,15 @@ import java.util.List;
  */
 public class EditorActivity extends Activity {
 
-
-    private LinearLayout main;
+    private LinearLayout pollEditorLayout;
     private int optionID = 1;
     private List<EditText> editTexts = new ArrayList<EditText>();
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_editor);
-
-        main = (LinearLayout) findViewById(R.id.pollEditorLayout);
-
+        pollEditorLayout = (LinearLayout) findViewById(R.id.pollEditorLayout);
         Button addButton = (Button) findViewById(R.id.addOptionButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +39,7 @@ public class EditorActivity extends Activity {
     private void addVoteOption() {
         LinearLayout editTextLayout = new LinearLayout(this);
         editTextLayout.setOrientation(LinearLayout.VERTICAL);
-        main.addView(editTextLayout);
+        pollEditorLayout.addView(editTextLayout);
 
         EditText editOption = new EditText(this);
         String optionTextID = "@+id/editOption" + optionID;
@@ -51,9 +47,7 @@ public class EditorActivity extends Activity {
         editOption.setId(optionID++);
         editTextLayout.addView(editOption);
         editTexts.add(editOption);
-
-    }
-
+     }
 
     //Constructs an array of Strings pulled from the Text Fields
     public void saveAndReturn(View view) {
@@ -62,22 +56,16 @@ public class EditorActivity extends Activity {
         String pollQuestion = ((EditText)findViewById(R.id.pollQuestionField)).getText().toString();
         pollOptions.add(pollName);
         pollOptions.add(pollQuestion);
-
         for (EditText option : editTexts) {
             int currentOptionID = option.getId();
             String currentOptionString = ((EditText)findViewById(currentOptionID)).getText()
                     .toString();
             pollOptions.add(currentOptionString);
         }
-
         Intent returnToMain = new Intent();
         returnToMain.putStringArrayListExtra("pollOptions", pollOptions);
         setResult(RESULT_OK, returnToMain);
         finish();
-
-
-        ;
-
     }
 }
 

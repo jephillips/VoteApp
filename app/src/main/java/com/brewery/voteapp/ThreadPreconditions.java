@@ -7,6 +7,7 @@ import android.os.Looper;
  */
 public class ThreadPreconditions {
 
+    //Ensures UI updates are being done on the main thread
     public static void checkOnMainThread() {
         if (BuildConfig.DEBUG) {
             if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
