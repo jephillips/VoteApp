@@ -20,6 +20,7 @@ public class ManagerActivity extends Activity {
     PollBuilder pollBuilder = new PollBuilder();
     PollListAdapter pollListAdapter;
     private static int rowPosition;
+    ListView pollListView;
 
     public static void setRowPosition(int position) {
         rowPosition = position;
@@ -55,12 +56,12 @@ public class ManagerActivity extends Activity {
             pollListAdapter.updatePollArray(pollList);
 
         } else if (requestCode == 2) {
-            Bundle receivingBundle = data.getBundleExtra("poll");
+            Bundle receivingBundle = data.getBundleExtra("newBundle");
             Poll receivingPoll = (Poll) receivingBundle.getSerializable("poll");
             int pastPosition = receivingBundle.getInt("pastPosition");
             pollList.add(receivingPoll);
             pollList.remove(pastPosition);
-            pollListAdapter = new PollListAdapter(this, pollList);
+            pollListAdapter.updatePollArray(pollList);
         }
 
 
