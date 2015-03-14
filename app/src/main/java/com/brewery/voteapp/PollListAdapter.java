@@ -92,9 +92,6 @@ class PollListAdapter extends BaseAdapter {
 
             };
 
-
-
-
         });
         voteButton.setOnClickListener(new View.OnClickListener() {
             Context c = context;

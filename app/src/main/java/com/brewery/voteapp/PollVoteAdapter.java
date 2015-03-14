@@ -72,17 +72,19 @@ public class PollVoteAdapter extends BaseAdapter{
                       System.out.println(poll.getTotalVotes());
                       System.out.println(poll.getChoice(i).get(option).toString());
 
-                      pollBundle.putInt("number", 1);
-                      pollBundle.putSerializable("poll", poll);
-                      pollBundle.putInt("pastPosition", pastPosition);
+
 
                   }
               }
+
+                  pollBundle.putInt("number", 1);
+                  pollBundle.putSerializable("poll", poll);
+                  pollBundle.putInt("pastPosition", pastPosition);
+
                   Intent returnToMain = new Intent();
+                  returnToMain.putExtra("newBundle", pollBundle);
                   ((Activity) context).setResult(Activity.RESULT_OK, returnToMain);
                   ((Activity) context).finish();
-                  returnToMain.putExtras(pollBundle);
-
 
             }
         });
