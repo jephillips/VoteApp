@@ -27,8 +27,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae6aa736-4a00-44ac-8d29-ec9b8f5b5b00" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/EditorActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/EditorActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollBuilder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollVoteAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollVoteAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/VoteActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/VoteActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EmPubLite.iws" />
@@ -62,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditorActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EditorActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/EditorActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.831312" vertical-offset="351" max-vertical-offset="1428">
-              <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1428">
+              <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#537#547#0" expanded="true" />
@@ -81,18 +81,18 @@
       <file leaf-file-name="PollVoteAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollVoteAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="1156">
-              <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="515" max-vertical-offset="1190">
+              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VoteActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="VoteActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/VoteActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.83071554" vertical-offset="0" max-vertical-offset="612">
+              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -1237,12 +1237,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/Poll.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollResultAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollVoteAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/ThreadPreconditions.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/VoteActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/ResultsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollBuilder.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/EditorActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollVoteAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/VoteActivity.java" />
       </list>
     </option>
   </component>
@@ -1740,7 +1740,11 @@
       <created>1426300175132</created>
       <updated>1426300175132</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="PollBuilder now drops identical choices and Editor displays a toast when the user creates an empty option">
+      <created>1426356398322</created>
+      <updated>1426356398322</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1773,13 +1777,13 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3048276" sideWeight="0.50047845" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35721925" sideWeight="0.50053304" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3262032" sideWeight="0.49952152" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25119236" sideWeight="0.4985646" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11724138" sideWeight="0.49952152" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35721925" sideWeight="0.49946696" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27558637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1859,7 +1863,8 @@
     <MESSAGE value="MVP hit - Votes counts now show on result screen" />
     <MESSAGE value="Refactored all of the Java portion of the project" />
     <MESSAGE value="Removed an unused variable and whitespace" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed an unused variable and whitespace" />
+    <MESSAGE value="PollBuilder now drops identical choices and Editor displays a toast when the user creates an empty option" />
+    <option name="LAST_COMMIT_MESSAGE" value="PollBuilder now drops identical choices and Editor displays a toast when the user creates an empty option" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2209,27 +2214,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/EditorActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1734">
-          <caret line="101" column="11" selection-start-line="101" selection-start-column="11" selection-end-line="101" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollResultAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollVoteAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="1156">
-          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1428">
+          <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#537#547#0" expanded="true" />
+            <element signature="e#898#1050#0" expanded="true" />
+            <element signature="e#1039#1040#0" expanded="true" />
+            <element signature="e#1716#1724#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2249,25 +2244,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/VoteActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1734">
+          <caret line="101" column="11" selection-start-line="101" selection-start-column="11" selection-end-line="101" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/EditorActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollResultAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.831312" vertical-offset="351" max-vertical-offset="1428">
-          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#537#547#0" expanded="true" />
-            <element signature="e#898#1050#0" expanded="true" />
-            <element signature="e#1039#1040#0" expanded="true" />
-            <element signature="e#1716#1724#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/PollVoteAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="515" max-vertical-offset="1190">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/brewery/voteapp/VoteActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.83071554" vertical-offset="0" max-vertical-offset="612">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

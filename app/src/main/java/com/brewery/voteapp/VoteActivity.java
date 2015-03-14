@@ -27,4 +27,11 @@ public class VoteActivity extends Activity {
         PollVoteAdapter pollVoteAdapter = new PollVoteAdapter(this, currentPoll, pastPosition);
         pollOptionList.setAdapter(pollVoteAdapter);
     }
+
+    public void returnToMain(View view) {
+        CharSequence text = "Thank you for voting.";
+        Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
+        toast.show();
+        finish();
+    }
 }
