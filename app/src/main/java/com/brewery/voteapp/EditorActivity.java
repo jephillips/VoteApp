@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +59,12 @@ public class EditorActivity extends Activity {
         pollOptions.add(pollQuestion);
         for (EditText option : editTexts) {
             int currentOptionID = option.getId();
+            if (option.equals("")){
+                Toast errorToast = new Toast(this);
+                errorToast.makeText(this, "You have not entered a value in field " + currentOptionID,
+                        Toast.LENGTH_LONG);
+                errorToast.show();
+            }
             String currentOptionString = ((EditText)findViewById(currentOptionID)).getText()
                     .toString();
             pollOptions.add(currentOptionString);

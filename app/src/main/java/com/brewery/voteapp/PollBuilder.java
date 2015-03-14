@@ -1,7 +1,10 @@
 package com.brewery.voteapp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -30,6 +33,11 @@ public class PollBuilder {
         optionsList.remove(0);
         newPoll.setPollQuestion(optionsList.get(0));
         optionsList.remove(0);
+        // Removes duplicates from array
+        Set<String> removeDuplicateSet = new HashSet<String>();
+        removeDuplicateSet.addAll(optionsList);
+        optionsList.clear();
+        optionsList.addAll(removeDuplicateSet);
 
         for (String optionString : optionsList) {
             //Creates a hashmap with a option string and vote value init to 0
