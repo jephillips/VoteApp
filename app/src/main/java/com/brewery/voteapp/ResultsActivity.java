@@ -17,14 +17,12 @@ import java.util.ArrayList;
  */
 public class ResultsActivity extends Activity {
 
-    private Button returnToManagerButton;
     private ListView listView;
     private ArrayList<String> resultsArray;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_results);
-        returnToManagerButton = (Button) findViewById(R.id.returnToManagerButton);
         Intent receivingIntent = this.getIntent();
         Bundle receivingBundle = receivingIntent.getExtras();
         Poll currentPoll = (Poll)receivingBundle.getSerializable("poll");

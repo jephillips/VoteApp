@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 public class VoteActivity extends Activity {
 
-
     private int option1, option2,option3;
 
     @Override
