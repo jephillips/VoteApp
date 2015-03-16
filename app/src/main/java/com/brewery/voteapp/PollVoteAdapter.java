@@ -80,4 +80,6 @@ public class PollVoteAdapter extends BaseAdapter{
         });
         return convertView;
     }
+
+
 }

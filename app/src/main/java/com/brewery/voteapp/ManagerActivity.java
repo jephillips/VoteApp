@@ -3,11 +3,16 @@ package com.brewery.voteapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 
@@ -27,6 +32,7 @@ public class ManagerActivity extends Activity {
     }
     private static final int NEW_POLL_REQUEST = 1;
     private static final int UPDATED_POLL = 2;
+    private File pollFile;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +40,7 @@ public class ManagerActivity extends Activity {
         ListView pollListView = (ListView) findViewById(R.id.pollListView);
         pollListAdapter = new PollListAdapter(this, pollList);
         pollListView.setAdapter(pollListAdapter);
+        pollFile = new File(this.getFilesDir(), "pollFile");
     }
 
     public void newPollButton(View view) {
@@ -59,6 +66,29 @@ public class ManagerActivity extends Activity {
             pollList.remove(oldPoll);
             pollListAdapter.updatePollArray(pollList);
         }
+    }
+
+    //Might not stay in this class
+    private void saveState() {
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        boolean  keep = true;
+        try {
+            fos = new FileOutputStream(pollFile);
+            oos = new ObjectOutputStream(fos);
+        } catch (Exception e) {
+            keep = false;
+            Log.e("VoteApp", "failed to suspend", e);
+        }
+        finally{
+            try {
+                if (oos != null)   oos.close();
+                if (fos != null)   fos.close();
+                if (keep == false) pollFile.delete();
+            }
+            catch (Exception e) { /* do nothing */ }
+        }
+        
     }
 }
 
