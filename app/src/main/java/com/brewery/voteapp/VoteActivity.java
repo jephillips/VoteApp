@@ -29,9 +29,6 @@ public class VoteActivity extends Activity {
     }
 
     public void returnToMain(View view) {
-        CharSequence text = "Thank you for voting.";
-        Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
-        toast.show();
         finish();
     }
 }

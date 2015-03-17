@@ -74,18 +74,23 @@ public class ManagerActivity extends Activity {
 
         if (requestCode == NEW_POLL_REQUEST) {
 
-            ArrayList<String> pollOptions = data.getStringArrayListExtra("pollOptions");
-            Poll newPoll = pollBuilder.buildPoll(pollOptions);
-            pollList.add(newPoll);
-            pollListAdapter.updatePollArray(pollList);
+            if(resultCode == RESULT_OK) {
+                ArrayList<String> pollOptions = data.getStringArrayListExtra("pollOptions");
+                Poll newPoll = pollBuilder.buildPoll(pollOptions);
+                pollList.add(newPoll);
+                pollListAdapter.updatePollArray(pollList);
+            }
+            else { /* do nothing */ }
 
         } else if (requestCode == UPDATED_POLL) {
-            Bundle receivedBundle = data.getBundleExtra("newBundle");
-            Poll updatedPoll = (Poll) receivedBundle.getSerializable("poll");
-            int oldPoll = receivedBundle.getInt("pastPosition");
-            pollList.add(updatedPoll);
-            pollList.remove(oldPoll);
-            pollListAdapter.updatePollArray(pollList);
+            if (resultCode == RESULT_OK) {
+                Bundle receivedBundle = data.getBundleExtra("newBundle");
+                Poll updatedPoll = (Poll) receivedBundle.getSerializable("poll");
+                int oldPoll = receivedBundle.getInt("pastPosition");
+                pollList.add(updatedPoll);
+                pollList.remove(oldPoll);
+                pollListAdapter.updatePollArray(pollList);
+            } else { /* do nothing */ }
         }
     }
 

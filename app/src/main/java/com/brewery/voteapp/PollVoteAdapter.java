@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -74,6 +75,9 @@ public class PollVoteAdapter extends BaseAdapter{
                   pollBundle.putInt("pastPosition", pastPosition);
                   Intent returnToMain = new Intent();
                   returnToMain.putExtra("newBundle", pollBundle);
+                  CharSequence text = "Thank you for voting.";
+                  Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+                  toast.show();
                   ((Activity) context).setResult(Activity.RESULT_OK, returnToMain);
                   ((Activity) context).finish();
             }
