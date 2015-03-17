@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.ListView;
@@ -41,6 +43,25 @@ public class ManagerActivity extends Activity {
         pollListAdapter = new PollListAdapter(this, pollList);
         pollListView.setAdapter(pollListAdapter);
         pollFile = new File(this.getFilesDir(), "pollFile");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options, menu);
+        return(super.onCreateOptionsMenu(menu));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                return(true);
+            case R.id.about:
+                return(true);
+            case R.id.help:
+                return(true);
+        }
+        return(super.onOptionsItemSelected(item));
     }
 
     public void newPollButton(View view) {

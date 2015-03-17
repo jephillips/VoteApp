@@ -12,5 +12,7 @@
     <string name="save_poll_button">Save Poll</string>
     <string name="add_option_button_text">Add Option</string>
     <string name="add_new_option_string">Add New Option</string>
+    <string name="help">Help</string>
+    <string name="about">About</string>
 
 </resources>
