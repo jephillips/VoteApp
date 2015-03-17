@@ -57,8 +57,12 @@ public class ManagerActivity extends Activity {
             case android.R.id.home:
                 return(true);
             case R.id.about:
+                Intent aboutIntent = new Intent(this, AboutScreen.class);
+                startActivity(aboutIntent);
                 return(true);
             case R.id.help:
+                Intent helpIntent = new Intent(this, HelpScreen.class);
+                startActivity(helpIntent);
                 return(true);
         }
         return(super.onOptionsItemSelected(item));
