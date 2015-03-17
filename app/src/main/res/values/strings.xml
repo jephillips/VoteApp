@@ -15,5 +15,6 @@
     <string name="title_activity_about_screen">About</string>
     <string name="poll_results_label">Poll Results</string>
     <string name="vote_label_string">Vote</string>
+    <string name="about_content">This application was created as a project for The Java Brewery. An online Java learning group</string>
 
 </resources>
