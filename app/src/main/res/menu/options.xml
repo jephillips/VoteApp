@@ -13,4 +13,9 @@
         android:title="@string/about">
         >
     </item>
+
+    <item android:id="@+id/action_add_poll"
+        android:icon="@drawable/ic_action_new"
+        android:title="action_add"
+        android:showAsAction="ifRoom"/>
 </menu>

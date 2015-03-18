@@ -3,22 +3,11 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:id="@+id/poll_manager">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/new_poll_button"
-        android:id="@+id/button2"
-        android:layout_gravity="bottom"
-        android:onClick="newPollButton"
-        android:layout_marginTop="15dp"/>
-
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/pollListView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/button2" />
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

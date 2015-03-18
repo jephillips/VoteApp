@@ -64,14 +64,14 @@ public class ManagerActivity extends Activity {
                 Intent helpIntent = new Intent(this, HelpScreen.class);
                 startActivity(helpIntent);
                 return(true);
+            case R.id.action_add_poll:
+                Intent newPollIntent = new Intent(this, EditorActivity.class);
+                startActivityForResult(newPollIntent, NEW_POLL_REQUEST);
+                return(true);
         }
         return(super.onOptionsItemSelected(item));
     }
 
-    public void newPollButton(View view) {
-        Intent newPollIntent = new Intent(this, EditorActivity.class);
-        startActivityForResult(newPollIntent, NEW_POLL_REQUEST);
-    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
