@@ -12,7 +12,8 @@
         android:layout_alignBottom="@+id/deletePollButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <ImageButton
         android:layout_width="wrap_content"

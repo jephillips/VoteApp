@@ -3,6 +3,7 @@ package com.brewery.voteapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 /**
  * Created by Josh on 3/9/2015.
  */
-public class ManagerActivity extends Activity {
+public class ManagerActivity extends ActionBarActivity {
 
     ArrayList<Poll> pollList = new ArrayList<Poll>();
     PollBuilder pollBuilder = new PollBuilder();

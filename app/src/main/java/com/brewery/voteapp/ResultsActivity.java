@@ -4,6 +4,7 @@ package com.brewery.voteapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 /**
  * Created by Josh on 3/9/2015.
  */
-public class ResultsActivity extends Activity {
+public class ResultsActivity extends ActionBarActivity {
 
     private ListView listView;
     private ArrayList<String> resultsArray;
