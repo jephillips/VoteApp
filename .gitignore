@@ -18,3 +18,5 @@ local.properties
 proguard/
 # Log Files
 *.log
+# .idea files
+.idea
