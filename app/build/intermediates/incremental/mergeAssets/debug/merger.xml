@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\Josh\Desktop\Dev shit\EmPubLite\app\src\main\assets"/></dataSet><dataSet config="debug"><source path="C:\Users\Josh\Desktop\Dev shit\EmPubLite\app\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/jephillips/AndroidStudioProjects/VoteApp/app/src/main/assets"/></dataSet><dataSet config="debug"><source path="/home/jephillips/AndroidStudioProjects/VoteApp/app/src/debug/assets"/></dataSet></merger>
