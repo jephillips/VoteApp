@@ -1,14 +1,11 @@
 package com.brewery.voteapp;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by jephillips on 3/13/15.

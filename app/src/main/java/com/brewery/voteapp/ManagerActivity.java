@@ -1,20 +1,15 @@
 package com.brewery.voteapp;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
@@ -98,6 +93,24 @@ public class ManagerActivity extends ActionBarActivity {
             } else { /* do nothing */ }
         }
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (pollList != null) {
+            outState.putParcelableArrayList("polls", pollList);
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle state) {
+        super.onRestoreInstanceState(state);
+
+        pollList=state.getParcelableArrayList("polls");
+        pollListAdapter.updatePollArray(pollList);
+    }
+
 
     //Might not stay in this class
     private void saveState() {

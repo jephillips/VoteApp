@@ -82,7 +82,7 @@ class PollListAdapter extends BaseAdapter {
             public void onClick(View view) {
                 //Delivers current poll to the results view for display
                 Bundle pollBundle = new Bundle();
-                pollBundle.putSerializable("poll", currentPoll);
+                pollBundle.putParcelable("poll", currentPoll);
                 Intent resultsIntent = new Intent(view.getContext(), ResultsActivity.class);
                 resultsIntent.putExtras(pollBundle);
                 context.startActivity(resultsIntent);
@@ -93,7 +93,7 @@ class PollListAdapter extends BaseAdapter {
             public void onClick(View view) {
                 //Delivers current poll to vote view for mutation
                 Bundle pollBundle = new Bundle();
-                pollBundle.putSerializable("poll", currentPoll);
+                pollBundle.putParcelable("poll", currentPoll);
                 pollBundle.putInt("position", position);
                 Intent voteIntent = new Intent(view.getContext(), VoteActivity.class);
                 voteIntent.putExtras(pollBundle);

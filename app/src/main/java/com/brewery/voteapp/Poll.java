@@ -1,5 +1,8 @@
 package com.brewery.voteapp;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by Josh on 3/9/2015.
  */
-public class Poll implements Serializable {
+public class Poll implements Parcelable {
 
     public String pollName;
     public String pollQuestion;
@@ -49,4 +52,14 @@ public class Poll implements Serializable {
     }
 
     public String getPollQuestion() { return pollQuestion;}
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+    }
 }

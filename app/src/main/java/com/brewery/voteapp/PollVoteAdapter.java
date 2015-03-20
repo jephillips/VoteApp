@@ -71,7 +71,7 @@ public class PollVoteAdapter extends BaseAdapter{
                       poll.incrementTotalVotes();
                   }
               }
-                  pollBundle.putSerializable("poll", poll);
+                  pollBundle.putParcelable("poll", poll);
                   pollBundle.putInt("pastPosition", pastPosition);
                   Intent returnToMain = new Intent();
                   returnToMain.putExtra("newBundle", pollBundle);
