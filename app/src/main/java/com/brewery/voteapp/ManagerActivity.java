@@ -13,6 +13,8 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import de.greenrobot.event.EventBus;
+
 
 /**
  * Created by Josh on 3/9/2015.
@@ -24,6 +26,7 @@ public class ManagerActivity extends ActionBarActivity {
     PollListAdapter pollListAdapter;
     private static int rowPosition;
     ListView pollListView;
+    
 
     public static void setRowPosition(int position) {
         rowPosition = position;
