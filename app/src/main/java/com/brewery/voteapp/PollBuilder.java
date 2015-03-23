@@ -39,10 +39,8 @@ public class PollBuilder {
         optionsList.addAll(removeDuplicateSet);
 
         for (String optionString : optionsList) {
-            //Creates a hashmap with a option string and vote value init to 0
-            HashMap<String, AtomicInteger> newOption = new HashMap<String, AtomicInteger>();
-            newOption.put(optionString, new AtomicInteger());
-            newPoll.addChoice(newOption);
+            Choice newChoice = new Choice(optionString);
+            newPoll.addChoice(newChoice);
         }
         return newPoll;
     }

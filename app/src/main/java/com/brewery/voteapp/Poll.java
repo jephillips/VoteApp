@@ -3,11 +3,9 @@ package com.brewery.voteapp;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 /**
  * Created by Josh on 3/9/2015.
@@ -16,7 +14,7 @@ public class Poll implements Parcelable {
 
     public String pollName;
     public String pollQuestion;
-    public ArrayList<HashMap<String, AtomicInteger>> choiceList = new ArrayList<HashMap<String, AtomicInteger>>();
+    public ArrayList<Choice> choiceList = new ArrayList<Choice>();
     public int totalVotes;
 
     public void setPollQuestion(String question) {
@@ -31,7 +29,7 @@ public class Poll implements Parcelable {
         totalVotes++;
     }
 
-    public void addChoice(HashMap<String, AtomicInteger> newChoice) {
+    public void addChoice(Choice newChoice) {
         choiceList.add(newChoice);
     }
 
@@ -43,7 +41,7 @@ public class Poll implements Parcelable {
         return totalVotes;
     }
 
-    public HashMap<String, AtomicInteger> getChoice(int position) {
+    public Choice getChoice(int position) {
         return choiceList.get(position);
     }
 
@@ -60,6 +58,42 @@ public class Poll implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(pollName);
+        dest.writeString(pollQuestion);
+        dest.writeInt(totalVotes);
+        for(Choice thisChoice : choiceList) {
+            dest.writeString(thisChoice.getChoiceString());
+            dest.writeInt(thisChoice.getVoteCount());
+        }
+    }
+
+    public Poll(Parcel in) {
+        super();
+        readFromParcel(in);
+    }
+
+    public Poll() {
 
     }
+
+    public static final Parcelable.Creator<Poll> CREATOR = new Parcelable.Creator<Poll>() {
+        public Poll createFromParcel(Parcel in) {
+            return new Poll(in);
+        }
+
+        public Poll[] newArray(int size) {
+
+            return new Poll[size];
+        }
+
+    };
+
+    public void readFromParcel(Parcel in) {
+        pollName = in.readString();
+        pollQuestion = in.readString();
+        totalVotes = in.readInt();
+
+
+    }
+
 }

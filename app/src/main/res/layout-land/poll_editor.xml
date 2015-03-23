@@ -11,15 +11,6 @@
         android:id="@+id/addOptionButton"
         android:text="@string/add_new_option_string"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/save_poll_button"
-        android:id="@+id/saveButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="saveAndReturn"/>
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

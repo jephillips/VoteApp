@@ -23,7 +23,8 @@ public class PollResultAdapter extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return poll.choiceList.size();
+        return 0;
+//        return poll.choiceList.size();
     }
 
     @Override
@@ -44,10 +45,8 @@ public class PollResultAdapter extends BaseAdapter {
 
         TextView optionText = (TextView) convertView.findViewById(R.id.result_option_view);
         TextView voteCountText = (TextView) convertView.findViewById(R.id.result_vote_count);
-        //Removes sloppy formatting from hashmap returns
-        optionText.setText(poll.getChoice(position).keySet().toString().replaceAll("[\\[\\],]",""));
-        voteCountText.setText(poll.getChoice(position).values().toString().
-                replaceAll("[\\[\\],]",""));
+        optionText.setText(poll.getChoice(position).getChoiceString());
+        voteCountText.setText(poll.getChoice(position).getVoteCount());
         return convertView;
     }
 }

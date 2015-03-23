@@ -53,8 +53,8 @@ public class PollVoteAdapter extends BaseAdapter{
         if(convertView==null) {
             convertView = mInflater.inflate(R.layout.vote_choices_list_view, parent, false);
         }
-        final String option = poll.getChoice(position).keySet().toString()
-                .replaceAll("[\\[\\],]", "");
+        final String option = poll.getChoice(position).getChoiceString();
+        final int thisPosition = position;
 
         TextView optionTextView = (TextView)convertView.findViewById(R.id.vote_option_text);
         optionTextView.setText(option);
@@ -63,14 +63,11 @@ public class PollVoteAdapter extends BaseAdapter{
         voteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              for (int i = 0; i<poll.choiceList.size(); i++) {
-                  if (poll.getChoice(i).containsKey(option)) {
-                      HashMap<String, AtomicInteger> choiceKey = poll.getChoice(i);
-                      AtomicInteger voteValue = choiceKey.get(option);
-                      voteValue.incrementAndGet();
-                      poll.incrementTotalVotes();
-                  }
-              }
+
+                  Choice choice = poll.getChoice(thisPosition);
+                  choice.incrementVoteCount();
+                  poll.incrementTotalVotes();
+
                   pollBundle.putParcelable("poll", poll);
                   pollBundle.putInt("pastPosition", pastPosition);
                   Intent returnToMain = new Intent();

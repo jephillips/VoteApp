@@ -5,6 +5,8 @@ package com.brewery.voteapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,8 +52,34 @@ public class EditorActivity extends ActionBarActivity {
         editTexts.add(editOption);
      }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.editor_menu, menu);
+        return(super.onCreateOptionsMenu(menu));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                return(true);
+            case R.id.about:
+                Intent aboutIntent = new Intent(this, AboutScreen.class);
+                startActivity(aboutIntent);
+                return(true);
+            case R.id.help:
+                Intent helpIntent = new Intent(this, HelpScreen.class);
+                startActivity(helpIntent);
+                return(true);
+            case R.id.action_save_poll:
+                saveAndReturn();
+                return(true);
+        }
+        return(super.onOptionsItemSelected(item));
+    }
+
     //Constructs an array of Strings pulled from the Text Fields
-    public void saveAndReturn(View view) {
+    public void saveAndReturn() {
         ArrayList<String> pollOptions = new ArrayList<String>();
         String pollName = ((EditText)findViewById(R.id.pollNameField)).getText().toString();
         String pollQuestion = ((EditText)findViewById(R.id.pollQuestionField)).getText().toString();
