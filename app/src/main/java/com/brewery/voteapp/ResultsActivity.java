@@ -24,7 +24,7 @@ public class ResultsActivity extends ActionBarActivity {
         setContentView(R.layout.poll_results);
         Intent receivingIntent = this.getIntent();
         Bundle receivingBundle = receivingIntent.getExtras();
-        Poll currentPoll = (Poll)receivingBundle.getSerializable("poll");
+        Poll currentPoll = (Poll)receivingBundle.getParcelable("poll");
         TextView pollNameTextView = (TextView)findViewById(R.id.poll_name_text_view);
         ListView pollResultsListView = (ListView) findViewById(R.id.poll_results_list_view);
         PollResultAdapter pollResultAdapter = new PollResultAdapter(this, currentPoll);

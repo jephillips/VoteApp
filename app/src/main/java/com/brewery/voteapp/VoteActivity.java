@@ -17,7 +17,7 @@ public class VoteActivity extends ActionBarActivity {
         setContentView(R.layout.vote_screen);
         Intent receivingIntent = this.getIntent();
         Bundle receivingBundle = receivingIntent.getExtras();
-        Poll currentPoll = (Poll)receivingBundle.getSerializable("poll");
+        Poll currentPoll = (Poll)receivingBundle.getParcelable("poll");
         int pastPosition = receivingBundle.getInt("position");
         TextView pollQuestion = (TextView)findViewById(R.id.vote_poll_question);
         pollQuestion.setText(currentPoll.getPollQuestion());
