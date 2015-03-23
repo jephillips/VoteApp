@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class VoteActivity extends ActionBarActivity {
 
     private int option1, option2,option3;
@@ -19,6 +21,10 @@ public class VoteActivity extends ActionBarActivity {
         Bundle receivingBundle = receivingIntent.getExtras();
         Poll currentPoll = (Poll)receivingBundle.getParcelable("poll");
         int pastPosition = receivingBundle.getInt("position");
+        ArrayList<Choice> choiceArrayList = receivingBundle.getParcelableArrayList("choiceList");
+        for (Choice choice : choiceArrayList) {
+            currentPoll.addChoice(choice);
+        }
         TextView pollQuestion = (TextView)findViewById(R.id.vote_poll_question);
         pollQuestion.setText(currentPoll.getPollQuestion());
         ListView pollOptionList = (ListView)findViewById(R.id.vote_option_list);

@@ -95,6 +95,7 @@ class PollListAdapter extends BaseAdapter {
                 Bundle pollBundle = new Bundle();
                 pollBundle.putParcelable("poll", currentPoll);
                 pollBundle.putInt("position", position);
+                pollBundle.putParcelableArrayList("choiceList", currentPoll.getChoiceList());
                 Intent voteIntent = new Intent(view.getContext(), VoteActivity.class);
                 voteIntent.putExtras(pollBundle);
                 ((Activity)context).startActivityForResult(voteIntent, NEW_VOTE);

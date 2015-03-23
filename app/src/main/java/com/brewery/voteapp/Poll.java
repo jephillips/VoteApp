@@ -51,6 +51,10 @@ public class Poll implements Parcelable {
 
     public String getPollQuestion() { return pollQuestion;}
 
+    public ArrayList<Choice> getChoiceList(){
+        return choiceList;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -61,10 +65,7 @@ public class Poll implements Parcelable {
         dest.writeString(pollName);
         dest.writeString(pollQuestion);
         dest.writeInt(totalVotes);
-        for(Choice thisChoice : choiceList) {
-            dest.writeString(thisChoice.getChoiceString());
-            dest.writeInt(thisChoice.getVoteCount());
-        }
+
     }
 
     public Poll(Parcel in) {
@@ -92,7 +93,6 @@ public class Poll implements Parcelable {
         pollName = in.readString();
         pollQuestion = in.readString();
         totalVotes = in.readInt();
-
 
     }
 

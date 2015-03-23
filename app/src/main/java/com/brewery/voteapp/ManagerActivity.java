@@ -26,7 +26,7 @@ public class ManagerActivity extends ActionBarActivity {
     PollListAdapter pollListAdapter;
     private static int rowPosition;
     ListView pollListView;
-    
+
 
     public static void setRowPosition(int position) {
         rowPosition = position;
@@ -90,6 +90,10 @@ public class ManagerActivity extends ActionBarActivity {
                 Bundle receivedBundle = data.getBundleExtra("newBundle");
                 Poll updatedPoll = (Poll) receivedBundle.getSerializable("poll");
                 int oldPoll = receivedBundle.getInt("pastPosition");
+                ArrayList<Choice> choiceArrayList = receivedBundle.getParcelableArrayList("choiceList");
+                for (Choice choice : choiceArrayList) {
+                    updatedPoll.addChoice(choice);
+                }
                 pollList.add(updatedPoll);
                 pollList.remove(oldPoll);
                 pollListAdapter.updatePollArray(pollList);
