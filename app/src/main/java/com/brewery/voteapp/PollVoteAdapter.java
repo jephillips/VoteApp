@@ -70,7 +70,7 @@ public class PollVoteAdapter extends BaseAdapter{
 
                   pollBundle.putParcelable("poll", poll);
                   pollBundle.putInt("pastPosition", pastPosition);
-                  pollBundle.putParcelableArrayList("optionList", poll.getChoiceList());
+                  pollBundle.putParcelableArrayList("choiceList", poll.getChoiceList());
                   Intent returnToMain = new Intent();
                   returnToMain.putExtra("newBundle", pollBundle);
                   CharSequence text = "Thank you for voting.";
