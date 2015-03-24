@@ -83,6 +83,7 @@ class PollListAdapter extends BaseAdapter {
                 //Delivers current poll to the results view for display
                 Bundle pollBundle = new Bundle();
                 pollBundle.putParcelable("poll", currentPoll);
+                pollBundle.putParcelableArrayList("choiceList", currentPoll.getChoiceList());
                 Intent resultsIntent = new Intent(view.getContext(), ResultsActivity.class);
                 resultsIntent.putExtras(pollBundle);
                 context.startActivity(resultsIntent);

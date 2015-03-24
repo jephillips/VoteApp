@@ -88,7 +88,7 @@ public class ManagerActivity extends ActionBarActivity {
         } else if (requestCode == UPDATED_POLL) {
             if (resultCode == RESULT_OK) {
                 Bundle receivedBundle = data.getBundleExtra("newBundle");
-                Poll updatedPoll = (Poll) receivedBundle.getSerializable("poll");
+                Poll updatedPoll = (Poll) receivedBundle.getParcelable("poll");
                 int oldPoll = receivedBundle.getInt("pastPosition");
                 ArrayList<Choice> choiceArrayList = receivedBundle.getParcelableArrayList("choiceList");
                 for (Choice choice : choiceArrayList) {

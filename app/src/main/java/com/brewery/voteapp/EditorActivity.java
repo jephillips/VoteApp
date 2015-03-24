@@ -63,14 +63,6 @@ public class EditorActivity extends ActionBarActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 return(true);
-            case R.id.about:
-                Intent aboutIntent = new Intent(this, AboutScreen.class);
-                startActivity(aboutIntent);
-                return(true);
-            case R.id.help:
-                Intent helpIntent = new Intent(this, HelpScreen.class);
-                startActivity(helpIntent);
-                return(true);
             case R.id.action_save_poll:
                 saveAndReturn();
                 return(true);
@@ -87,12 +79,6 @@ public class EditorActivity extends ActionBarActivity {
         pollOptions.add(pollQuestion);
         for (EditText option : editTexts) {
             int currentOptionID = option.getId();
-            if (option.equals(" ")){
-                Toast errorToast = new Toast(this);
-                errorToast.makeText(this, "You have not entered a value in field " + currentOptionID,
-                        Toast.LENGTH_LONG);
-                errorToast.show();
-            }
             String currentOptionString = ((EditText)findViewById(currentOptionID)).getText()
                     .toString();
             pollOptions.add(currentOptionString);
