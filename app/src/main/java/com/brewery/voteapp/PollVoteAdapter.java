@@ -59,6 +59,8 @@ public class PollVoteAdapter extends BaseAdapter{
             holder = new ViewHolder();
             holder.optionTextView =(TextView)convertView.findViewById(R.id.vote_option_text);
             holder.voteButton = (Button)convertView.findViewById(R.id.vote_list_button);
+
+            convertView.setTag(holder);
         }
         else {
             holder = (ViewHolder) convertView.getTag();
@@ -88,7 +90,7 @@ public class PollVoteAdapter extends BaseAdapter{
         return convertView;
     }
 
-    static class ViewHolder {
+    private class ViewHolder {
         TextView optionTextView;
         Button voteButton;
     }
