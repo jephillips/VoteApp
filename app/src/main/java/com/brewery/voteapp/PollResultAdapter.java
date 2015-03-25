@@ -38,14 +38,25 @@ public class PollResultAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
+
         if(convertView==null) {
             convertView = mInflater.inflate(R.layout.poll_results_list_view, parent, false);
+            holder = new ViewHolder();
+            holder.optionText = (TextView) convertView.findViewById(R.id.result_option_view);
+            holder.voteCountText = (TextView) convertView.findViewById(R.id.result_vote_count);
+        }
+        else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        TextView optionText = (TextView) convertView.findViewById(R.id.result_option_view);
-        TextView voteCountText = (TextView) convertView.findViewById(R.id.result_vote_count);
-        optionText.setText(String.valueOf(poll.getChoice(position).getChoiceString()));
-        voteCountText.setText(String.valueOf(poll.getChoice(position).getVoteCount()));
+        holder.optionText.setText(String.valueOf(poll.getChoice(position).getChoiceString()));
+        holder.voteCountText.setText(String.valueOf(poll.getChoice(position).getVoteCount()));
         return convertView;
+    }
+
+    static class ViewHolder {
+        TextView optionText;
+        TextView voteCountText;
     }
 }

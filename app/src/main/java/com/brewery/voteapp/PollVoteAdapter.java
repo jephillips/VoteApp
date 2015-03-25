@@ -50,17 +50,22 @@ public class PollVoteAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView==null) {
-            convertView = mInflater.inflate(R.layout.vote_choices_list_view, parent, false);
-        }
+        ViewHolder holder;
         final String option = poll.getChoice(position).getChoiceString();
         final int thisPosition = position;
 
-        TextView optionTextView = (TextView)convertView.findViewById(R.id.vote_option_text);
-        optionTextView.setText(option);
-        Button voteButton = (Button)convertView.findViewById(R.id.vote_list_button);
+        if(convertView==null) {
+            convertView = mInflater.inflate(R.layout.vote_choices_list_view, parent, false);
+            holder = new ViewHolder();
+            holder.optionTextView =(TextView)convertView.findViewById(R.id.vote_option_text);
+            holder.voteButton = (Button)convertView.findViewById(R.id.vote_list_button);
+        }
+        else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
-        voteButton.setOnClickListener(new View.OnClickListener() {
+        holder.optionTextView.setText(option);
+        holder.voteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -81,6 +86,11 @@ public class PollVoteAdapter extends BaseAdapter{
             }
         });
         return convertView;
+    }
+
+    static class ViewHolder {
+        TextView optionTextView;
+        Button voteButton;
     }
 
 
