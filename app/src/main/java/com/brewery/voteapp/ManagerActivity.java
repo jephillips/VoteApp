@@ -3,17 +3,12 @@ package com.brewery.voteapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
-import de.greenrobot.event.EventBus;
 
 
 /**
@@ -22,25 +17,17 @@ import de.greenrobot.event.EventBus;
 public class ManagerActivity extends ActionBarActivity {
 
     ArrayList<Poll> pollList = new ArrayList<Poll>();
-    PollBuilder pollBuilder = new PollBuilder();
+    PollBuilder pollBuilder = PollBuilder.getInstance();
     PollListAdapter pollListAdapter;
-    private static int rowPosition;
-    ListView pollListView;
-
-
-    public static void setRowPosition(int position) {
-        rowPosition = position;
-    }
     private static final int NEW_POLL_REQUEST = 1;
     private static final int UPDATED_POLL = 2;
-    private File pollFile;
-    private PollSaver pollSaver;
+    private PollManager pollManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_manager);
-        pollSaver = new PollSaver(this);
-        pollList = pollSaver.loadPolls();
+        pollManager = new PollManager(this);
+        pollList = pollManager.loadPolls();
         ListView pollListView = (ListView) findViewById(R.id.pollListView);
         pollListAdapter = new PollListAdapter(this, pollList);
         pollListView.setAdapter(pollListAdapter);
@@ -84,7 +71,7 @@ public class ManagerActivity extends ActionBarActivity {
                 ArrayList<String> pollOptions = data.getStringArrayListExtra("pollOptions");
                 Poll newPoll = pollBuilder.buildPoll(pollOptions);
                 pollList.add(newPoll);
-                pollSaver.savePolls(pollList);
+                pollManager.savePolls(pollList);
                 pollListAdapter.updatePollArray(pollList);
             }
             else { /* do nothing */ }
@@ -100,7 +87,7 @@ public class ManagerActivity extends ActionBarActivity {
                 }
                 pollList.add(updatedPoll);
                 pollList.remove(oldPoll);
-                pollSaver.savePolls(pollList);
+                pollManager.savePolls(pollList);
                 pollListAdapter.updatePollArray(pollList);
             } else { /* do nothing */ }
         }

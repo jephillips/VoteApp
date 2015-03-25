@@ -54,6 +54,7 @@ public class PollResultAdapter extends BaseAdapter {
 
         holder.optionText.setText(String.valueOf(poll.getChoice(position).getChoiceString()));
         holder.voteCountText.setText(String.valueOf(poll.getChoice(position).getVoteCount()));
+
         return convertView;
     }
 

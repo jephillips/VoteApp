@@ -7,26 +7,19 @@ import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.ArrayList;
 
 /**
  * Created by jephillips on 3/24/15.
  */
-public class PollSaver {
+public class PollManager {
 
     static Context context;
     static SharedPreferences sharedPreferences;
     private static ArrayList<Poll> mPollArray;
 
-    public PollSaver(Context context) {
-        this.context = context;
+    public PollManager(Context context) {
+        PollManager.context = context;
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
@@ -36,7 +29,7 @@ public class PollSaver {
             SharedPreferences.Editor mEditor = sharedPreferences.edit();
             String serializedArray = gson.toJson(pollArrayList);
             mEditor.putString("pollArrayList", serializedArray);
-            mEditor.commit();
+            mEditor.apply();
 
     }
 
@@ -47,7 +40,7 @@ public class PollSaver {
                     new TypeToken<ArrayList<Poll>>(){}.getType());
 
             if (mPollArray == null) {
-                mPollArray = new ArrayList<Poll>();
+                mPollArray = new ArrayList();
             }
         }
 

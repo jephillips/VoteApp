@@ -19,7 +19,7 @@ public class VoteActivity extends ActionBarActivity {
         setContentView(R.layout.vote_screen);
         Intent receivingIntent = this.getIntent();
         Bundle receivingBundle = receivingIntent.getExtras();
-        Poll currentPoll = (Poll)receivingBundle.getParcelable("poll");
+        Poll currentPoll = receivingBundle.getParcelable("poll");
         int pastPosition = receivingBundle.getInt("position");
         ArrayList<Choice> choiceArrayList = receivingBundle.getParcelableArrayList("choiceList");
         for (Choice choice : choiceArrayList) {

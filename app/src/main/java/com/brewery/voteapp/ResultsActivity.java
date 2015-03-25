@@ -16,21 +16,19 @@ import java.util.ArrayList;
  */
 public class ResultsActivity extends ActionBarActivity {
 
-    private ListView listView;
-    private ArrayList<String> resultsArray;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_results);
         Intent receivingIntent = this.getIntent();
         Bundle receivingBundle = receivingIntent.getExtras();
-        Poll currentPoll = (Poll)receivingBundle.getParcelable("poll");
+        Poll currentPoll = receivingBundle.getParcelable("poll");
         ArrayList<Choice> choiceArrayList = receivingBundle.getParcelableArrayList("choiceList");
         for (Choice choice : choiceArrayList) {
             currentPoll .addChoice(choice);
         }
         TextView pollNameTextView = (TextView)findViewById(R.id.poll_name_text_view);
         ListView pollResultsListView = (ListView) findViewById(R.id.poll_results_list_view);
+        pollResultsListView.setEnabled(false);
         PollResultAdapter pollResultAdapter = new PollResultAdapter(this, currentPoll);
         pollResultsListView.setAdapter(pollResultAdapter);
         pollNameTextView.setText(currentPoll.getPollQuestion());

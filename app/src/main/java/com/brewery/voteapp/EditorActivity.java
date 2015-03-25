@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +44,6 @@ public class EditorActivity extends ActionBarActivity {
         pollEditorLayout.addView(editTextLayout);
 
         EditText editOption = new EditText(this);
-        String optionTextID = "@+id/editOption" + optionID;
         editOption.setHint("Option" + optionID );
         editOption.setId(optionID++);
         editTextLayout.addView(editOption);
@@ -72,7 +70,7 @@ public class EditorActivity extends ActionBarActivity {
 
     //Constructs an array of Strings pulled from the Text Fields
     public void saveAndReturn() {
-        ArrayList<String> pollOptions = new ArrayList<String>();
+        ArrayList<String> pollOptions = new ArrayList();
         String pollName = ((EditText)findViewById(R.id.pollNameField)).getText().toString();
         String pollQuestion = ((EditText)findViewById(R.id.pollQuestionField)).getText().toString();
         pollOptions.add(pollName);

@@ -22,7 +22,6 @@ class PollListAdapter extends BaseAdapter {
     private final Context context;
     private ArrayList<Poll> adapterPollList;
     private int NEW_VOTE = 2;
-    private PollBuilder pollBuilder = new PollBuilder();
 
     PollListAdapter(Context context, ArrayList<Poll> pollList) {
         this.context = context;
