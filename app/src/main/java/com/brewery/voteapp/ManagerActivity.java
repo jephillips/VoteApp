@@ -34,14 +34,17 @@ public class ManagerActivity extends ActionBarActivity {
     private static final int NEW_POLL_REQUEST = 1;
     private static final int UPDATED_POLL = 2;
     private File pollFile;
+    private PollSaver pollSaver;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_manager);
+        pollSaver = new PollSaver(this);
+        pollList = pollSaver.loadPolls();
         ListView pollListView = (ListView) findViewById(R.id.pollListView);
         pollListAdapter = new PollListAdapter(this, pollList);
         pollListView.setAdapter(pollListAdapter);
-        pollFile = new File(this.getFilesDir(), "pollFile");
+
     }
 
     @Override
@@ -81,6 +84,7 @@ public class ManagerActivity extends ActionBarActivity {
                 ArrayList<String> pollOptions = data.getStringArrayListExtra("pollOptions");
                 Poll newPoll = pollBuilder.buildPoll(pollOptions);
                 pollList.add(newPoll);
+                pollSaver.savePolls(pollList);
                 pollListAdapter.updatePollArray(pollList);
             }
             else { /* do nothing */ }
@@ -96,6 +100,7 @@ public class ManagerActivity extends ActionBarActivity {
                 }
                 pollList.add(updatedPoll);
                 pollList.remove(oldPoll);
+                pollSaver.savePolls(pollList);
                 pollListAdapter.updatePollArray(pollList);
             } else { /* do nothing */ }
         }

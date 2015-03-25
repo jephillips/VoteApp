@@ -6,6 +6,9 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,46 +22,35 @@ import java.util.ArrayList;
 public class PollSaver {
 
     static Context context;
+    static SharedPreferences sharedPreferences;
+    private static ArrayList<Poll> mPollArray;
 
     public PollSaver(Context context) {
         this.context = context;
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-//    static void serialize(ArrayList<Poll> pollArrayList) {
-//
-//        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-//
-//        if (awesomeObjectCacheFile != null) {
-//            Gson gson = new Gson();
-//            String literal = gson.toJson(model);
-//            FileWriter writer = null;
-//            try {
-//                writer = new FileWriter(awesomeObjectCacheFile, false); // false overwrites ie do not append
-//                writer.write(literal);
-//            } catch (Exception oops) {
-//                oops.printStackTrace();
-//            }
-//            if (writer != null) try { writer.close(); } catch (Exception ignore) { }
-//        }
-//    }
-//
-//    static ArrayList<Poll> deserialize(long id) {
-//        StringBuilder sb = new StringBuilder();
-//        Gson gson = new Gson();
-//        ArrayList<Poll> pollArrayList = null;
-//        Poll poll = null;
-//        try {
-//            SharedPreferences
-//            sb.setLength(0);
-//            BufferedReader br = new BufferedReader(new FileReader(awesomeObjectCacheFile));
-//            String line;
-//            while ((line = br.readLine()) != null) sb.append(line);
-//            poll = gson.fromJson(sb.toString(), Poll.class);
-//            br.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return pollArrayList;
-//    }
+    static void savePolls(ArrayList<Poll> pollArrayList) {
+
+            Gson gson = new Gson();
+            SharedPreferences.Editor mEditor = sharedPreferences.edit();
+            String serializedArray = gson.toJson(pollArrayList);
+            mEditor.putString("pollArrayList", serializedArray);
+            mEditor.commit();
+
+    }
+
+    static ArrayList<Poll> loadPolls() {
+
+        if(mPollArray == null) {
+            mPollArray = new Gson().fromJson(sharedPreferences.getString("pollArrayList", null),
+                    new TypeToken<ArrayList<Poll>>(){}.getType());
+            if (mPollArray == null) {
+                mPollArray = new ArrayList<Poll>();
+            }
+        }
+
+        return mPollArray;
+    }
 
 }
