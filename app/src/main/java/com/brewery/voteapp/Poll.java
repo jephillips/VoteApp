@@ -4,13 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
 /**
  * Created by Josh on 3/9/2015.
  */
-public class Poll implements Parcelable {
+public class Poll implements Parcelable, Serializable {
 
     public String pollName;
     public String pollQuestion;

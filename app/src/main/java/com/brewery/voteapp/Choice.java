@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by jephillips on 3/23/15.
  */
-public class Choice implements Parcelable {
+public class Choice implements Parcelable, Serializable {
     private Integer voteCount;
     private String choiceString;
 
