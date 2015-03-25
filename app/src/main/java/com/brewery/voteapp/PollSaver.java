@@ -45,6 +45,7 @@ public class PollSaver {
         if(mPollArray == null) {
             mPollArray = new Gson().fromJson(sharedPreferences.getString("pollArrayList", null),
                     new TypeToken<ArrayList<Poll>>(){}.getType());
+
             if (mPollArray == null) {
                 mPollArray = new ArrayList<Poll>();
             }

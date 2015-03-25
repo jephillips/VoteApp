@@ -123,28 +123,5 @@ public class ManagerActivity extends ActionBarActivity {
         pollListAdapter.updatePollArray(pollList);
     }
 
-
-    //Might not stay in this class
-    private void saveState() {
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-        boolean  keep = true;
-        try {
-            fos = new FileOutputStream(pollFile);
-            oos = new ObjectOutputStream(fos);
-        } catch (Exception e) {
-            keep = false;
-            Log.e("VoteApp", "failed to suspend", e);
-        }
-        finally{
-            try {
-                if (oos != null)   oos.close();
-                if (fos != null)   fos.close();
-                if (keep == false) pollFile.delete();
-            }
-            catch (Exception e) { /* do nothing */ }
-        }
-        
-    }
 }
 
