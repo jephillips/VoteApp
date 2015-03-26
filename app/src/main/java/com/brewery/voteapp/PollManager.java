@@ -7,6 +7,9 @@ import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 import java.util.ArrayList;
 
 /**
@@ -23,17 +26,17 @@ public class PollManager {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    static void savePolls(ArrayList<Poll> pollArrayList) {
+    public void savePollArray(ArrayList<Poll> pollArrayList) {
 
             Gson gson = new Gson();
             SharedPreferences.Editor mEditor = sharedPreferences.edit();
             String serializedArray = gson.toJson(pollArrayList);
+            System.out.println(serializedArray);
             mEditor.putString("pollArrayList", serializedArray);
             mEditor.apply();
-
     }
 
-    static ArrayList<Poll> loadPolls() {
+    public ArrayList<Poll> loadPolls() {
 
         if(mPollArray == null) {
             mPollArray = new Gson().fromJson(sharedPreferences.getString("pollArrayList", null),
@@ -46,5 +49,17 @@ public class PollManager {
 
         return mPollArray;
     }
+    public String serializePoll(Poll poll) {
+        Gson gson = new Gson();
+        String serializedPoll = gson.toJson(poll);
+        return serializedPoll;
+    }
+
+    public Poll deserializePoll(String poll) {
+        Poll deserializedPoll = new Gson().fromJson(poll, new TypeToken<Poll>(){}.getType());
+        return deserializedPoll;
+
+    }
+
 
 }
