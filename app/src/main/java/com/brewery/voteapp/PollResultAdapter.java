@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 /**
  * Created by jephillips on 3/13/15.
  */
@@ -42,10 +45,7 @@ public class PollResultAdapter extends BaseAdapter {
 
         if(convertView==null) {
             convertView = mInflater.inflate(R.layout.poll_results_list_view, parent, false);
-            holder = new ViewHolder();
-            holder.optionText = (TextView) convertView.findViewById(R.id.result_option_view);
-            holder.voteCountText = (TextView) convertView.findViewById(R.id.result_vote_count);
-
+            holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }
         else {
@@ -58,8 +58,12 @@ public class PollResultAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private class ViewHolder {
-        TextView optionText;
-        TextView voteCountText;
+    public class ViewHolder {
+        @InjectView(R.id.result_option_view)TextView optionText;
+        @InjectView(R.id.result_vote_count)TextView voteCountText;
+
+        public ViewHolder(View view) {
+            ButterKnife.inject(this, view);
+        }
     }
 }

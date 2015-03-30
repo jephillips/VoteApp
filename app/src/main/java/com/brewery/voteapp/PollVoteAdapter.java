@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 /**
  * Created by jephillips on 3/13/15.
  */
@@ -53,10 +56,7 @@ public class PollVoteAdapter extends BaseAdapter{
 
         if(convertView==null) {
             convertView = mInflater.inflate(R.layout.vote_choices_list_view, parent, false);
-            holder = new ViewHolder();
-            holder.optionTextView =(TextView)convertView.findViewById(R.id.vote_option_text);
-            holder.voteButton = (Button)convertView.findViewById(R.id.vote_list_button);
-
+            holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }
         else {
@@ -68,29 +68,34 @@ public class PollVoteAdapter extends BaseAdapter{
             @Override
             public void onClick(View view) {
 
-                  Choice choice = poll.getChoice(thisPosition);
-                  choice.incrementVoteCount();
-                  poll.incrementTotalVotes();
+                Choice choice = poll.getChoice(thisPosition);
+                choice.incrementVoteCount();
+                poll.incrementTotalVotes();
 
-                  pollBundle.putParcelable("poll", poll);
-                  pollBundle.putInt("pastPosition", pastPosition);
-                  pollBundle.putParcelableArrayList("choiceList", poll.getChoiceList());
-                  Intent returnToMain = new Intent();
-                  returnToMain.putExtra("newBundle", pollBundle);
-                  CharSequence text = "Thank you for voting.";
-                  Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-                  toast.show();
-                  ((Activity) context).setResult(Activity.RESULT_OK, returnToMain);
-                  ((Activity) context).finish();
+                pollBundle.putParcelable("poll", poll);
+                pollBundle.putInt("pastPosition", pastPosition);
+                pollBundle.putParcelableArrayList("choiceList", poll.getChoiceList());
+                Intent returnToMain = new Intent();
+                returnToMain.putExtra("newBundle", pollBundle);
+                CharSequence text = "Thank you for voting.";
+                Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+                toast.show();
+                ((Activity) context).setResult(Activity.RESULT_OK, returnToMain);
+                ((Activity) context).finish();
             }
         });
         return convertView;
     }
 
-    private class ViewHolder {
-        TextView optionTextView;
-        Button voteButton;
+    public class ViewHolder {
+        @InjectView(R.id.vote_option_text)TextView optionTextView;
+        @InjectView(R.id.vote_list_button)Button voteButton;
+
+        public ViewHolder(View view) {
+            ButterKnife.inject(this, view);
+        }
     }
+
 
 
 }
