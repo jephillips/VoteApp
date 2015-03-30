@@ -13,6 +13,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
+
 /**
  * Created by jephillips on 3/12/15.
  */
@@ -52,33 +56,44 @@ class PollListAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+        Poll currentPoll = adapterPollList.get(position);
         ViewHolder holder;
 
         if(convertView==null) {
                 convertView = mInflater.inflate(R.layout.poll_list_view_layout, parent, false);
-                holder = new ViewHolder();
-                holder.pollNameView = (TextView) convertView.findViewById(R.id.poll_name_text_view);
-
+                holder = new ViewHolder(convertView,position);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-        ImageButton deleteButton = (ImageButton)convertView.findViewById(R.id.deletePollButton);
-        ImageButton editButton = (ImageButton)convertView.findViewById(R.id.editPollButton);
-        ImageButton voteButton = (ImageButton)convertView.findViewById(R.id.votePollButton);
-        final Poll currentPoll = adapterPollList.get(position);
+        holder.pollNameView.setText(currentPoll.getPollName());
+        return convertView;
+    }
 
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                adapterPollList.remove(position);
-                updatePollArray(adapterPollList);
-            }
-        });
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    class ViewHolder {
+        int position;
+        Poll currentPoll;
+        View view;
+
+        public ViewHolder(View view, int position) {
+            ButterKnife.inject(this, view);
+            this.position = position;
+            currentPoll = adapterPollList.get(position);
+            this.view = view;
+        }
+        @InjectView(R.id.poll_name_text_view) TextView pollNameView;
+        @InjectView(R.id.deletePollButton)ImageButton deleteButton;
+        @InjectView(R.id.editPollButton)ImageButton editButton;
+        @InjectView(R.id.votePollButton)ImageButton voteButton;
+
+        @OnClick(R.id.deletePollButton)
+        public void deletePoll() {
+           adapterPollList.remove(position);
+           updatePollArray(adapterPollList);
+       }
+        @OnClick(R.id.editPollButton)
+        public void viewResults() {
                 //Delivers current poll to the results view for display
                 Bundle pollBundle = new Bundle();
                 pollBundle.putParcelable("poll", currentPoll);
@@ -87,26 +102,17 @@ class PollListAdapter extends BaseAdapter {
                 resultsIntent.putExtras(pollBundle);
                 context.startActivity(resultsIntent);
             }
-        });
-        voteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Delivers current poll to vote view for mutation
-                Bundle pollBundle = new Bundle();
-                pollBundle.putParcelable("poll", currentPoll);
-                pollBundle.putInt("position", position);
-                pollBundle.putParcelableArrayList("choiceList", currentPoll.getChoiceList());
-                Intent voteIntent = new Intent(view.getContext(), VoteActivity.class);
-                voteIntent.putExtras(pollBundle);
-                ((Activity)context).startActivityForResult(voteIntent, NEW_VOTE);
-            }
-        });
-        holder.pollNameView.setText(currentPoll.getPollName());
-        return convertView;
-    }
-
-    private class ViewHolder {
-        TextView pollNameView;
+        @OnClick(R.id.votePollButton)
+        public void voteOnPoll(View view) {
+            //Delivers current poll to vote view for mutation
+            Bundle pollBundle = new Bundle();
+            pollBundle.putParcelable("poll", currentPoll);
+            pollBundle.putInt("position", position);
+            pollBundle.putParcelableArrayList("choiceList", currentPoll.getChoiceList());
+            Intent voteIntent = new Intent(view.getContext(), VoteActivity.class);
+            voteIntent.putExtras(pollBundle);
+            ((Activity)context).startActivityForResult(voteIntent, NEW_VOTE);
+        }
     }
 
 

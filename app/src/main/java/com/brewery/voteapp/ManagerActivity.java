@@ -71,7 +71,7 @@ public class ManagerActivity extends ActionBarActivity {
                 ArrayList<String> pollOptions = data.getStringArrayListExtra("pollOptions");
                 Poll newPoll = pollBuilder.buildPoll(pollOptions);
                 pollList.add(newPoll);
-                pollManager.savePolls(pollList);
+                pollManager.savePollArray(pollList);
                 pollListAdapter.updatePollArray(pollList);
             }
             else { /* do nothing */ }
@@ -87,7 +87,7 @@ public class ManagerActivity extends ActionBarActivity {
                 }
                 pollList.add(updatedPoll);
                 pollList.remove(oldPoll);
-                pollManager.savePolls(pollList);
+                pollManager.savePollArray(pollList);
                 pollListAdapter.updatePollArray(pollList);
             } else { /* do nothing */ }
         }
